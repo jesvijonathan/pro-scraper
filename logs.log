@@ -1,27 +1,32 @@
-[2023-09-26 00:38:23,135] [INFO] - 
+[2023-09-27 00:01:31,939] [INFO] - 
  ############################### 
 
-[2023-09-26 00:38:23,135] [INFO] - Starting program
-[2023-09-26 00:38:23,135] [INFO] - Logger initialized
-[2023-09-26 00:38:23,135] [INFO] - Loading Configuration
-[2023-09-26 00:38:23,135] [INFO] - Logger append        : False
-[2023-09-26 00:38:23,135] [INFO] - Logger console print : False
-[2023-09-26 00:38:23,135] [INFO] - Logger tail          : False
-[2023-09-26 00:38:23,135] [INFO] - Environment OS       : 1
-[2023-09-26 00:38:23,135] [INFO] - ChromeDriver path    : ""
-[2023-09-26 00:38:23,135] [INFO] - ChromeDriver mode    : 0
-[2023-09-26 00:38:23,135] [INFO] - ChromeDriver pool    : 2
-[2023-09-26 00:38:23,466] [INFO] - Imported all modules
-[2023-09-26 00:38:23,481] [INFO] - Imported In-House modules
-[2023-09-26 00:38:23,481] [INFO] - Registered Blueprints
-[2023-09-26 00:38:23,481] [INFO] - Initializing ChromeDriver pool...
-[2023-09-26 00:38:23,481] [INFO] - Using chromedriver mode: 0
-[2023-09-26 00:38:23,481] [INFO] - Using default windows chromedriver
-[2023-09-26 00:38:24,903] [INFO] - Using chromedriver mode: 0
-[2023-09-26 00:38:24,903] [INFO] - Using default windows chromedriver
-[2023-09-26 00:38:26,278] [INFO] - Initialized ChromeDriver pool with 2 instances
-[2023-09-26 00:38:26,895] [INFO] - POST "/search" 127.0.0.1 {'searchQuery': 'samsung s23'}
-[2023-09-26 00:38:26,895] [INFO] - Getting ChromeDriver instance
-[2023-09-26 00:38:26,895] [INFO] - Got chromedriver instance
-[2023-09-26 00:38:32,909] [INFO] - Releasing ChromeDriver instance
-[2023-09-26 00:39:36,389] [INFO] - Cleaning up
+[2023-09-27 00:01:31,939] [INFO] - Starting program
+[2023-09-27 00:01:31,939] [INFO] - Logger initialized
+[2023-09-27 00:01:31,939] [INFO] - Loading Configuration
+[2023-09-27 00:01:31,939] [INFO] - Logger append        : False
+[2023-09-27 00:01:31,939] [INFO] - Logger console print : False
+[2023-09-27 00:01:31,939] [INFO] - Logger tail          : False
+[2023-09-27 00:01:31,939] [INFO] - Environment OS       : 1
+[2023-09-27 00:01:31,939] [INFO] - ChromeDriver path    : ""
+[2023-09-27 00:01:31,939] [INFO] - ChromeDriver mode    : 0
+[2023-09-27 00:01:31,939] [INFO] - ChromeDriver pool    : 2
+[2023-09-27 00:01:31,939] [INFO] - ChromeDriver timeout : 10
+[2023-09-27 00:01:31,939] [INFO] - Debug mode           : True
+[2023-09-27 00:01:31,939] [INFO] - Use reloader         : True
+[2023-09-27 00:01:31,939] [INFO] - App port             : 5000
+[2023-09-27 00:01:31,939] [INFO] - Threaded             : True
+[2023-09-27 00:01:31,939] [INFO] - Imported all modules
+[2023-09-27 00:01:31,939] [INFO] - Imported In-House modules
+[2023-09-27 00:01:31,955] [INFO] - Registered Blueprints
+[2023-09-27 00:01:31,955] [INFO] - Initializing ChromeDriver pool...
+[2023-09-27 00:01:31,955] [INFO] - Using chromedriver mode: 0
+[2023-09-27 00:01:31,955] [INFO] - Using default windows chromedriver
+[2023-09-27 00:01:33,622] [INFO] - Using chromedriver mode: 0
+[2023-09-27 00:01:33,622] [INFO] - Using default windows chromedriver
+[2023-09-27 00:01:35,252] [INFO] - Initialized ChromeDriver pool with 2 instances
+[2023-09-27 00:01:43,072] [INFO] - POST "/search" 127.0.0.1 {'searchQuery': 'iphone 14'}
+[2023-09-27 00:01:43,072] [INFO] - Getting ChromeDriver instance
+[2023-09-27 00:01:43,074] [INFO] - Got chromedriver instance
+[2023-09-27 00:01:54,116] [INFO] - Releasing ChromeDriver instance
+[2023-09-27 00:02:23,776] [INFO] - Cleaning up

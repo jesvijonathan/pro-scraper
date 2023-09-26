@@ -1,4 +1,20 @@
 
+import chromedriver
+from search_controller import search_bp
+import scrapy
+import atexit
+import threading
+import time
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import requests
+import json
+import re
+import MySQLdb.cursors
+from datetime import datetime
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import config
 from logger import logger
 logger.info("\n ############################### \n")
@@ -19,41 +35,22 @@ logger.info("App port             : " + str(config.app_port))
 logger.info("Threaded             : " + str(config.threaded))
 
 
-
-
-from flask import Flask, render_template, request, redirect, url_for, flash, session
 # from flask_mysqldb import MySQL
 # from flask_mail import Mail, Message
-from datetime import datetime
-import MySQLdb.cursors
-import re
-import json
-import requests
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
-import threading
-import atexit
 logger.info("Imported all modules")
 
-import scrapy
 logger.info("Imported In-House modules")
 
 
 app = Flask(__name__)
 
 
-from search_controller import search_bp
 app.register_blueprint(search_bp)
 logger.info("Registered Blueprints")
 
 
-
-
-import chromedriver
 chromedriver.init_chromedriver_pool()
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -62,6 +59,7 @@ def index():
     logger.info("GET \"" + path + "\" " + str(ip))
 
     return render_template('index.html')
+
 
 """
     driver = chromedriver.get_chromedriver()
@@ -75,20 +73,20 @@ def index():
         logger.error("Failed to get chromedriver instance")
 """
 
-
-     
+    
 @app.route('/searchProduct', methods=['POST'])
 def searchProduct():
-        ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
-        path = request.path
-        form_data = request.form.to_dict()
-        logger.info("POST \"" + path + "\" " + str(ip) + " " + str(form_data)) 
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    form_data = request.form.to_dict()
+    logger.info("POST \"" + path + "\" " + str(ip) + " " + str(form_data))
 
-        return "true"
+    return "true"
+
 
 @app.route("/productPage", methods=['GET'])
 def productPage():
-      return "True"
+    return "True"
 
 
 @app.errorhandler(404)
@@ -100,15 +98,16 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-
 def cleanup():
     logger.info("Cleaning up")
-    
+
     chromedriver.chrome_driver_queue.join()
     chromedriver.close_chromedriver_pool()
     logger.info("ChromeDriver pool closed")
-    
+
     logger.info("Exiting program")
+
+
 atexit.register(cleanup)
 
 if __name__ == "__main__":
@@ -116,4 +115,5 @@ if __name__ == "__main__":
     app_port = config.app_port or 5000
     use_reloader = config.use_reloader
     threaded = config.threaded
-    app.run(debug=debug_mode, port=app_port, use_reloader=use_reloader, threaded=threaded)
+    app.run(debug=debug_mode, port=app_port,
+            use_reloader=use_reloader, threaded=threaded)

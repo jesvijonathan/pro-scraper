@@ -1,10 +1,14 @@
 import config
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import queue
 import time
 from logger import logger
 
 NUM_CHROMEDRIVERS = config.chromedriver_pool_size
+
 
 def init_chromedriver():
     chrome_options = get_driver_mode()
@@ -12,11 +16,13 @@ def init_chromedriver():
 
 def get_driver_mode():
     options = webdriver.ChromeOptions()
+
     if config.chromedriver_mode == 0:
         options.add_argument("--headless")
     elif config.chromedriver_mode == 2:
         options.add_argument("--start-maximized")
     logger.info("Using chromedriver mode: " + str(config.chromedriver_mode))
+     
     return options
 
 def get_webdriver(chrome_options):
