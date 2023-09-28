@@ -17,5 +17,14 @@ use_reloader = True   # set to True to enable auto reload on code changes
 app_port = 5000    # set to port number to run server on
 threaded = True    # set to True to enable multi-threading
 
-max_search_results = 10      # set to max number of search results to return
+max_quick_search_results = 30      # set to max number of quick search results to return
+max_search_results = 10      # set to max number of search results to return (deep search results, higher value scraps more data)
 webload_timeout = 30      # set to number of seconds to wait for a webpage to load
+
+database_host = "localhost"
+database_user = "root"
+database_password = ""
+database_name = "pro_scraper"
+
+
+secret_key = "secret key"

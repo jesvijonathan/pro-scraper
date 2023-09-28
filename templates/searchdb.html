@@ -1,0 +1,20 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Pro Scrap</title>
+  </head>
+  <body>
+    <h1>Pro Scrap (Quick Search)</h1>
+
+    <form id="" action="/search/quick_search" method="post">
+      <input type="text" name="searchQuery" placeholder="URL" />
+      <input type="submit" value="Search" />
+    </form>
+    <p>
+      Quick search is based on db cache and if not found, as usual scrapes the
+      page and stores the results in the db (does a Deep Search if query not
+      found in db).
+    </p>
+  </body>
+  <a href="/">Switch to deep search</a>
+</html>

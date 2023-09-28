@@ -17,6 +17,8 @@ from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import config
 from logger import logger
+
+
 logger.info("\n ############################### \n")
 logger.info("Starting program")
 logger.info("Logger initialized")
@@ -41,8 +43,97 @@ logger.info("Imported all modules")
 
 logger.info("Imported In-House modules")
 
+# connect to MySQL
+
+
+# MySQL configurations
+
+
+
 
 app = Flask(__name__)
+
+import mysql.connector
+
+
+
+# connect to database
+db = mysql.connector.connect(
+host=config.database_host,
+user=config.database_user,
+password=config.database_password)
+
+cursor = db.cursor(buffered=True)
+sql = "CREATE DATABASE IF NOT EXISTS {s0}".format(s0=config.database_name)
+cursor.execute(sql)
+
+db = mysql.connector.connect(
+host=config.database_host,
+user=config.database_user,
+password=config.database_password,
+database=config.database_name )
+cursor = db.cursor(buffered=True)
+
+logger.info("MySQL cursor created")
+
+# create and return a unique db & cursor for the object
+
+
+
+
+"""
+{
+  "title": "Apple iPhone 13 (128GB, Midnight)",
+  "tags": ["Apple", "iPhone", "13", "128GB,", "Midnight"],
+  "market": "Reliance Digital",
+  "price": "54900.00",
+  "rating": {
+    "reviews": "8,723",
+    "score": "4.6"
+  },
+  "in_stock": "",
+  "shipping": "Free delivery by 3 Oct and free 5-day returns",
+  "verified": false,
+  "price_description": "",
+  "additional_info": "Smartphone  Dual SIM  5G",
+  "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSdbMcu_sYPXLZcOuSnCAAleUSFoclkU1qgAQmPdw_fDIGB7gFF4bHInfXkp9pt6e5l3lxuK2RVAQjVI2G3ji5KRMBR1XMJLfCUjeuQDB__&usqp=CAE",
+  "links": [
+    "https://www.google.com/url?url=https://www.reliancedigital.in/apple-iphone-13-128-gb-midnight-black-/p/491997699%3Fsrsltid%3DAfmBOopVnn4-1tzEQMo89wA9KWyO_OtVL7yHKBRSacTmY-TW_Esr82pJJ0I&rct=j&q=&esrc=s&opi=95576897&sa=U&ved=0ahUKEwiHnsSA68iBAxUcSmwGHUXJAxwQguUECMcM&usg=AOvVaw0NI9j7lMJZ6KwAeDoH_8N_",
+    "https://www.google.com/shopping/product/10864203085039380343?q=iphone+13&prds=eto:10603666471394521545_0,pid:7634124128593707086,rsk:PC_4079606304177687932&sa=X&ved=0ahUKEwiHnsSA68iBAxUcSmwGHUXJAxwQ8gIIvwwoAA",
+    "https://www.google.com/shopping/product/10864203085039380343/offers?q=iphone+13&prds=eto:10603666471394521545_0,pid:7634124128593707086,rsk:PC_4079606304177687932&sa=X&ved=0ahUKEwiHnsSA68iBAxUcSmwGHUXJAxwQ3q4ECMoM"
+  ],
+  "scraped": 1695750538.90776
+}"""
+
+# create tale if not exists
+sql = ("""CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    hash VARCHAR(32) UNIQUE,
+    img VARCHAR(255),
+    market VARCHAR(255),
+    shipping VARCHAR(255),
+    price DECIMAL(10, 2),
+    other_price DECIMAL(10, 2),
+    reviews INT,
+    score DECIMAL(3, 1),
+    link LONGTEXT,
+    in_stock VARCHAR(255),
+    verified BOOLEAN,      
+    tags VARCHAR(255),
+    additional_info VARCHAR(255),
+    price_description VARCHAR(255),
+    other_links LONGTEXT,
+    scraped DATETIME,
+    last_scraped DATETIME
+)""")
+
+cursor.execute(sql)
+
+
+app.secret_key = config.secret_key
+logger.info("Secret key set")
+
 
 
 app.register_blueprint(search_bp)
@@ -59,6 +150,13 @@ def index():
     logger.info("GET \"" + path + "\" " + str(ip))
 
     return render_template('index.html')
+
+@app.route('/quick', methods=['GET'])
+def index_db_search():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    return render_template('searchdb.html')
 
 
 """
@@ -93,7 +191,7 @@ def productPage():
 def page_not_found(e):
     ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
     path = request.path
-    logger.error("\""+path + "\" 404 " + str(ip))
+    logger.error("\""+path + "\" 404 " + str(ip) + " " + str(e))
 
     return render_template('404.html'), 404
 
@@ -115,5 +213,5 @@ if __name__ == "__main__":
     app_port = config.app_port or 5000
     use_reloader = config.use_reloader
     threaded = config.threaded
-    app.run(debug=debug_mode, port=app_port,
-            use_reloader=use_reloader, threaded=threaded)
+    app.run(debug=debug_mode, port=app_port)
+    # ,use_reloader=use_reloader, threaded=threaded)
