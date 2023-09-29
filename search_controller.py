@@ -20,14 +20,20 @@ class SearchView(MethodView):
 
         result = scrapy.GoogleScrapy(search_query)
 
-        if self.path == '/search':
-            return result.scrap_product_data_db()
-        elif self.path == '/search/deep_search':
-            return result.scrape_product_data()
-        elif self.path == '/search/quick_search':
-            return result.scrap_product_data_db()
-        else:
-            return jsonify({'error': 'Invalid URL'}), 404
+        try:
+            if self.path == '/search':
+                return result.scrap_product_data_db()
+            elif self.path == '/search/deep_search':
+                return result.scrape_product_data()
+            elif self.path == '/search/quick_search':
+                return result.scrap_product_data_db()
+            elif self.path == '/search/product':
+                return result.scrap_product()
+            else:
+                return jsonify({'error': 'Invalid URL'}), 404
+        except Exception as e:
+            logger.error(f"Exception: {str(e)}")
+            return jsonify({'error': str(e)}), 500
 
     def get(self):
         logger.info(f"GET \"{self.path}\" {self.ip} {str(self.form)} {str(self.request.args)}")
@@ -35,8 +41,6 @@ class SearchView(MethodView):
 
     def post(self):
         logger.info(f"POST \"{self.path}\" {self.ip} {str(self.form)}")
-        if self.path == '/search/productPage':
-            return jsonify({'message': 'This is a /search/productPage POST request'})
         return self.handle_search(lambda result: result.scrape_product_data())
 
 search_bp.add_url_rule('/search', view_func=SearchView.as_view('search_product_view'))

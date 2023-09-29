@@ -55,6 +55,9 @@ class GoogleScrapy:
     def __del__(self):
         chromedriver.release_chromedriver(self.driver)
 
+    def scrap_product(self):
+        pass
+    
     def scrap_product_data_db(self):
         con = getDb()
         keywords = self.rproduct.split(" ")
