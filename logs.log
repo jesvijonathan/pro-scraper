@@ -1,65 +1,52 @@
-[2023-09-28 22:56:03,706] [INFO] - 
+[2023-10-01 16:26:55,188] [INFO] - 
  ############################### 
 
-[2023-09-28 22:56:03,706] [INFO] - Starting program
-[2023-09-28 22:56:03,706] [INFO] - Logger initialized
-[2023-09-28 22:56:03,706] [INFO] - Loading Configuration
-[2023-09-28 22:56:03,706] [INFO] - Logger append        : False
-[2023-09-28 22:56:03,706] [INFO] - Logger console print : False
-[2023-09-28 22:56:03,706] [INFO] - Logger tail          : False
-[2023-09-28 22:56:03,706] [INFO] - Environment OS       : 1
-[2023-09-28 22:56:03,706] [INFO] - ChromeDriver path    : ""
-[2023-09-28 22:56:03,706] [INFO] - ChromeDriver mode    : 0
-[2023-09-28 22:56:03,706] [INFO] - ChromeDriver pool    : 2
-[2023-09-28 22:56:03,706] [INFO] - ChromeDriver timeout : 10
-[2023-09-28 22:56:03,706] [INFO] - Debug mode           : True
-[2023-09-28 22:56:03,706] [INFO] - Use reloader         : True
-[2023-09-28 22:56:03,706] [INFO] - App port             : 5000
-[2023-09-28 22:56:03,706] [INFO] - Threaded             : True
-[2023-09-28 22:56:03,706] [INFO] - Imported all modules
-[2023-09-28 22:56:03,706] [INFO] - Imported In-House modules
-[2023-09-28 22:56:03,730] [INFO] - MySQL cursor created
-[2023-09-28 22:56:03,730] [INFO] - Secret key set
-[2023-09-28 22:56:03,731] [INFO] - Registered Blueprints
-[2023-09-28 22:56:03,731] [INFO] - Initializing ChromeDriver pool...
-[2023-09-28 22:56:03,731] [INFO] - Using chromedriver mode: 0
-[2023-09-28 22:56:03,731] [INFO] - Using default windows chromedriver
-[2023-09-28 22:56:05,036] [INFO] - Using chromedriver mode: 0
-[2023-09-28 22:56:05,036] [INFO] - Using default windows chromedriver
-[2023-09-28 22:56:06,338] [INFO] - Initialized ChromeDriver pool with 2 instances
-[2023-09-28 22:56:12,188] [INFO] - GET "/" 127.0.0.1
-[2023-09-28 22:56:13,958] [INFO] - POST "/search/deep_search" 127.0.0.1 {'searchQuery': 'AAA battery'}
-[2023-09-28 22:56:13,958] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:56:13,958] [INFO] - Got chromedriver instance
-[2023-09-28 22:56:19,341] [INFO] - Successfully inserted 11 products into the database
-[2023-09-28 22:56:19,341] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:56:22,433] [INFO] - GET "/quick" 127.0.0.1
-[2023-09-28 22:56:24,068] [INFO] - POST "/search/quick_search" 127.0.0.1 {'searchQuery': 'AAA battery'}
-[2023-09-28 22:56:24,069] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:56:24,069] [INFO] - Got chromedriver instance
-[2023-09-28 22:56:24,071] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:56:40,369] [INFO] - GET "/quick" 127.0.0.1
-[2023-09-28 22:56:43,615] [INFO] - POST "/search/quick_search" 127.0.0.1 {'searchQuery': 'battery'}
-[2023-09-28 22:56:43,615] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:56:43,615] [INFO] - Got chromedriver instance
-[2023-09-28 22:56:43,618] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:57:04,137] [INFO] - POST "/search/quick_search" 127.0.0.1 {'searchQuery': '5000 mah '}
-[2023-09-28 22:57:04,137] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:57:04,137] [INFO] - Got chromedriver instance
-[2023-09-28 22:57:04,140] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:57:09,905] [INFO] - POST "/search/quick_search" 127.0.0.1 {'searchQuery': 'mah'}
-[2023-09-28 22:57:09,905] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:57:09,905] [INFO] - Got chromedriver instance
-[2023-09-28 22:57:09,907] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:57:32,859] [INFO] - GET "/" 127.0.0.1
-[2023-09-28 22:57:49,282] [INFO] - POST "/search/deep_search" 127.0.0.1 {'searchQuery': 'milton bottle'}
-[2023-09-28 22:57:49,282] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:57:49,282] [INFO] - Got chromedriver instance
-[2023-09-28 22:57:53,867] [INFO] - Successfully inserted 11 products into the database
-[2023-09-28 22:57:53,867] [INFO] - Releasing ChromeDriver instance
-[2023-09-28 22:58:05,661] [INFO] - Cleaning up
-[2023-09-28 22:58:12,120] [INFO] - GET "/quick" 127.0.0.1
-[2023-09-28 22:58:19,119] [INFO] - POST "/search/quick_search" 127.0.0.1 {'searchQuery': 'milton bottle'}
-[2023-09-28 22:58:19,119] [INFO] - Getting ChromeDriver instance
-[2023-09-28 22:58:19,119] [INFO] - Got chromedriver instance
-[2023-09-28 22:58:19,122] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 16:26:55,188] [INFO] - Starting program
+[2023-10-01 16:26:55,188] [INFO] - Logger initialized
+[2023-10-01 16:26:55,188] [INFO] - Loading Configuration
+[2023-10-01 16:26:55,188] [INFO] - Logger append        : False
+[2023-10-01 16:26:55,188] [INFO] - Logger console print : False
+[2023-10-01 16:26:55,188] [INFO] - Logger tail          : False
+[2023-10-01 16:26:55,188] [INFO] - Environment OS       : 1
+[2023-10-01 16:26:55,188] [INFO] - ChromeDriver path    : ""
+[2023-10-01 16:26:55,188] [INFO] - ChromeDriver mode    : 0
+[2023-10-01 16:26:55,188] [INFO] - ChromeDriver pool    : 1
+[2023-10-01 16:26:55,188] [INFO] - ChromeDriver timeout : 10
+[2023-10-01 16:26:55,188] [INFO] - Debug mode           : True
+[2023-10-01 16:26:55,188] [INFO] - Use reloader         : True
+[2023-10-01 16:26:55,188] [INFO] - App port             : 5000
+[2023-10-01 16:26:55,188] [INFO] - Threaded             : True
+[2023-10-01 16:26:55,188] [INFO] - Imported all modules
+[2023-10-01 16:26:55,188] [INFO] - Imported In-House modules
+[2023-10-01 16:26:55,220] [INFO] - MySQL cursor created
+[2023-10-01 16:26:55,220] [INFO] - Secret key set
+[2023-10-01 16:26:55,228] [INFO] - Registered Blueprints
+[2023-10-01 16:26:55,228] [INFO] - Initializing ChromeDriver pool...
+[2023-10-01 16:26:55,228] [INFO] - Using chromedriver mode: 0
+[2023-10-01 16:26:55,228] [INFO] - Using default windows chromedriver
+[2023-10-01 16:26:56,859] [INFO] - Initialized ChromeDriver pool with 1 instances
+[2023-10-01 16:27:01,140] [INFO] - GET "/restart" 127.0.0.1
+[2023-10-01 16:27:01,140] [INFO] - Restarting all ChromeDriver instances...
+[2023-10-01 16:27:03,184] [INFO] - Initializing ChromeDriver pool...
+[2023-10-01 16:27:03,186] [INFO] - Using chromedriver mode: 0
+[2023-10-01 16:27:03,186] [INFO] - Using default windows chromedriver
+[2023-10-01 16:27:04,901] [INFO] - Initialized ChromeDriver pool with 1 instances
+[2023-10-01 16:27:04,909] [INFO] - Restarted all ChromeDriver instances
+[2023-10-01 16:27:12,151] [INFO] - GET "/restart" 127.0.0.1
+[2023-10-01 16:27:12,151] [INFO] - Restarting all ChromeDriver instances...
+[2023-10-01 16:27:14,196] [INFO] - Initializing ChromeDriver pool...
+[2023-10-01 16:27:14,196] [INFO] - Using chromedriver mode: 0
+[2023-10-01 16:27:14,196] [INFO] - Using default windows chromedriver
+[2023-10-01 16:27:15,799] [INFO] - Initialized ChromeDriver pool with 1 instances
+[2023-10-01 16:27:15,799] [INFO] - Restarted all ChromeDriver instances
+[2023-10-01 16:27:17,770] [INFO] - GET "/search/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'fe1cf26086e3747222eff985b805d062')])
+[2023-10-01 16:27:17,770] [INFO] - Getting ChromeDriver instance
+[2023-10-01 16:27:17,778] [INFO] - Got chromedriver instance
+[2023-10-01 16:27:17,778] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 16:27:21,637] [INFO] - GET "/search/product_deep" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'fe1cf26086e3747222eff985b805d062')])
+[2023-10-01 16:27:21,637] [INFO] - Getting ChromeDriver instance
+[2023-10-01 16:27:21,637] [INFO] - Got chromedriver instance
+[2023-10-01 16:27:21,643] [INFO] - Deep search product links for fe1cf26086e3747222eff985b805d062
+[2023-10-01 16:27:25,298] [INFO] - Successfully inserted 5 product links into the database
+[2023-10-01 16:27:25,298] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 16:27:27,769] [INFO] - Cleaning up

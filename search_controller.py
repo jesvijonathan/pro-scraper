@@ -29,6 +29,10 @@ class SearchView(MethodView):
                 return result.scrap_product_data_db()
             elif self.path == '/search/product':
                 return result.scrap_product()
+            elif self.path == '/search/product_quick':
+                return result.scrap_product()
+            elif self.path == '/search/product_deep':
+                return result.scrap_product(deep=True)
             else:
                 return jsonify({'error': 'Invalid URL'}), 404
         except Exception as e:
@@ -43,7 +47,9 @@ class SearchView(MethodView):
         logger.info(f"POST \"{self.path}\" {self.ip} {str(self.form)}")
         return self.handle_search(lambda result: result.scrape_product_data())
 
-search_bp.add_url_rule('/search', view_func=SearchView.as_view('search_product_view'))
-search_bp.add_url_rule('/search/productPage', view_func=SearchView.as_view('search_productPage_view'))
+search_bp.add_url_rule('/search', view_func=SearchView.as_view('search_search_view'))
 search_bp.add_url_rule('/search/quick_search', view_func=SearchView.as_view('search_quickSearch_view'))
 search_bp.add_url_rule('/search/deep_search', view_func=SearchView.as_view('search_deepSearch_view'))
+search_bp.add_url_rule('/search/product', view_func=SearchView.as_view('search_product_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/search/product_quick', view_func=SearchView.as_view('search_productQuick_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/search/product_deep', view_func=SearchView.as_view('search_productDeep_view'))  # Use a unique endpoint name here

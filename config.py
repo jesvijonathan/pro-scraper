@@ -8,7 +8,7 @@ env_os = 1       # 0 : "linux" or 1 : "windows"
 chromedriver_path = ""
 chromedriver_mode = 0       # 0 : "headless" or 1 : "normal" or 2 : "maximized"
 # set to number of chromedriver instances to run in parallel
-chromedriver_pool_size = 2
+chromedriver_pool_size = 1
 # set to number of seconds to wait for a chromedriver instance to become available
 chromedriver_timeout = 10
 

@@ -16,7 +16,8 @@ def init_chromedriver():
 
 def get_driver_mode():
     options = webdriver.ChromeOptions()
-
+    options.add_argument('--disable-extensions')
+    # driver = webdriver.Chrome(chrome_options=options, command_executor="http://localhost:4444/wd/hub", service_args=["--verbose", "--log-path=chromedriver.log"], timeout=999999)  # Change the timeout value as needed
     if config.chromedriver_mode == 0:
         options.add_argument("--headless")
     elif config.chromedriver_mode == 2:
@@ -28,15 +29,15 @@ def get_driver_mode():
 def get_webdriver(chrome_options):
     if config.chromedriver_path:
         logger.info("Using User defined chromedriver path")
-        return webdriver.Chrome(executable_path=config.chromedriver_path, options=chrome_options)
+        return webdriver.Chrome(executable_path=config.chromedriver_path, options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
     else:
         if config.env_os == 0:
             logger.info("Using default linux chromedriver")
-            return webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options)
+            return webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
         elif config.env_os == 1:
             
             logger.info("Using default windows chromedriver")
-            return webdriver.Chrome(executable_path="C:\chromedriver.exe", options=chrome_options)
+            return webdriver.Chrome(executable_path="C:\chromedriver.exe", options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
         else:
             logger.error("Invalid OS/Path")
             return None
@@ -81,3 +82,15 @@ def close_chromedriver_pool():
             print(f"Error while closing ChromeDriver instance: {str(e)}")
             
 
+def restart_all_chrome_drivers():
+    global chrome_driver_queue
+    logger.info("Restarting all ChromeDriver instances...")
+    while not chrome_driver_queue.empty():
+        driver = chrome_driver_queue.get()
+        try:
+            driver.quit()   
+        except Exception as e:
+            print(f"Error while closing ChromeDriver instance: {str(e)}")
+    init_chromedriver_pool()
+    logger.info("Restarted all ChromeDriver instances")
+    

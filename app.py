@@ -130,6 +130,47 @@ sql = ("""CREATE TABLE IF NOT EXISTS products (
 
 cursor.execute(sql)
 
+# create a table for the specific product | use product hash as key to locate product | there may be multiple products with the same hash but different links
+# table must have id, hash, link, scraped, last_scraped store price delivery returns
+sql = ("""CREATE TABLE IF NOT EXISTS product_links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hash VARCHAR(32),
+    store VARCHAR(255),
+    link LONGTEXT,
+    scraped DATETIME,
+    last_scraped DATETIME,
+    price DECIMAL(10, 2),
+    other_price DECIMAL(10, 2),
+    delivery VARCHAR(255),
+    returns VARCHAR(255),
+    new_hash VARCHAR(32) UNIQUE
+       
+)""")
+
+cursor.execute(sql)
+
+# create a table reviews for the specific product | use product hash as key to locate product | there may be multiple products with the same hash but different links
+# should have id, hash, rating, reviews_link, 1-star reviews, 2-star reviews, 3-star reviews, 4-star reviews, 5-star reviews, tags, scraped, last_scraped
+
+sql = ("""CREATE TABLE IF NOT EXISTS product_reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hash VARCHAR(32),
+    rating DECIMAL(3, 1),
+    reviews_link LONGTEXT,
+    reviews INT,
+    one_star INT,
+    two_star INT,
+    three_star INT,
+    four_star INT,
+    five_star INT,
+    tags LONGTEXT,
+    scraped DATETIME,
+    last_scraped DATETIME
+)""")
+
+cursor.execute(sql)
+
+
 
 app.secret_key = config.secret_key
 logger.info("Secret key set")
@@ -158,6 +199,13 @@ def index_db_search():
     logger.info("GET \"" + path + "\" " + str(ip))
     return render_template('searchdb.html')
 
+@app.route('/restart', methods=['GET'])
+def restart():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    chromedriver.restart_all_chrome_drivers()
+    return "Restarted all ChromeDriver instances"
 
 """
     driver = chromedriver.get_chromedriver()
@@ -167,7 +215,7 @@ def index_db_search():
             return driver.page_source
         finally:
             chromedriver.release_chromedriver(driver)
-    else:
+    else: 
         logger.error("Failed to get chromedriver instance")
 """
 
