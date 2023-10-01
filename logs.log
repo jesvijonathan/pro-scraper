@@ -1,52 +1,68 @@
-[2023-10-01 16:26:55,188] [INFO] - 
+[2023-10-01 18:18:12,449] [INFO] - 
  ############################### 
 
-[2023-10-01 16:26:55,188] [INFO] - Starting program
-[2023-10-01 16:26:55,188] [INFO] - Logger initialized
-[2023-10-01 16:26:55,188] [INFO] - Loading Configuration
-[2023-10-01 16:26:55,188] [INFO] - Logger append        : False
-[2023-10-01 16:26:55,188] [INFO] - Logger console print : False
-[2023-10-01 16:26:55,188] [INFO] - Logger tail          : False
-[2023-10-01 16:26:55,188] [INFO] - Environment OS       : 1
-[2023-10-01 16:26:55,188] [INFO] - ChromeDriver path    : ""
-[2023-10-01 16:26:55,188] [INFO] - ChromeDriver mode    : 0
-[2023-10-01 16:26:55,188] [INFO] - ChromeDriver pool    : 1
-[2023-10-01 16:26:55,188] [INFO] - ChromeDriver timeout : 10
-[2023-10-01 16:26:55,188] [INFO] - Debug mode           : True
-[2023-10-01 16:26:55,188] [INFO] - Use reloader         : True
-[2023-10-01 16:26:55,188] [INFO] - App port             : 5000
-[2023-10-01 16:26:55,188] [INFO] - Threaded             : True
-[2023-10-01 16:26:55,188] [INFO] - Imported all modules
-[2023-10-01 16:26:55,188] [INFO] - Imported In-House modules
-[2023-10-01 16:26:55,220] [INFO] - MySQL cursor created
-[2023-10-01 16:26:55,220] [INFO] - Secret key set
-[2023-10-01 16:26:55,228] [INFO] - Registered Blueprints
-[2023-10-01 16:26:55,228] [INFO] - Initializing ChromeDriver pool...
-[2023-10-01 16:26:55,228] [INFO] - Using chromedriver mode: 0
-[2023-10-01 16:26:55,228] [INFO] - Using default windows chromedriver
-[2023-10-01 16:26:56,859] [INFO] - Initialized ChromeDriver pool with 1 instances
-[2023-10-01 16:27:01,140] [INFO] - GET "/restart" 127.0.0.1
-[2023-10-01 16:27:01,140] [INFO] - Restarting all ChromeDriver instances...
-[2023-10-01 16:27:03,184] [INFO] - Initializing ChromeDriver pool...
-[2023-10-01 16:27:03,186] [INFO] - Using chromedriver mode: 0
-[2023-10-01 16:27:03,186] [INFO] - Using default windows chromedriver
-[2023-10-01 16:27:04,901] [INFO] - Initialized ChromeDriver pool with 1 instances
-[2023-10-01 16:27:04,909] [INFO] - Restarted all ChromeDriver instances
-[2023-10-01 16:27:12,151] [INFO] - GET "/restart" 127.0.0.1
-[2023-10-01 16:27:12,151] [INFO] - Restarting all ChromeDriver instances...
-[2023-10-01 16:27:14,196] [INFO] - Initializing ChromeDriver pool...
-[2023-10-01 16:27:14,196] [INFO] - Using chromedriver mode: 0
-[2023-10-01 16:27:14,196] [INFO] - Using default windows chromedriver
-[2023-10-01 16:27:15,799] [INFO] - Initialized ChromeDriver pool with 1 instances
-[2023-10-01 16:27:15,799] [INFO] - Restarted all ChromeDriver instances
-[2023-10-01 16:27:17,770] [INFO] - GET "/search/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'fe1cf26086e3747222eff985b805d062')])
-[2023-10-01 16:27:17,770] [INFO] - Getting ChromeDriver instance
-[2023-10-01 16:27:17,778] [INFO] - Got chromedriver instance
-[2023-10-01 16:27:17,778] [INFO] - Releasing ChromeDriver instance
-[2023-10-01 16:27:21,637] [INFO] - GET "/search/product_deep" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'fe1cf26086e3747222eff985b805d062')])
-[2023-10-01 16:27:21,637] [INFO] - Getting ChromeDriver instance
-[2023-10-01 16:27:21,637] [INFO] - Got chromedriver instance
-[2023-10-01 16:27:21,643] [INFO] - Deep search product links for fe1cf26086e3747222eff985b805d062
-[2023-10-01 16:27:25,298] [INFO] - Successfully inserted 5 product links into the database
-[2023-10-01 16:27:25,298] [INFO] - Releasing ChromeDriver instance
-[2023-10-01 16:27:27,769] [INFO] - Cleaning up
+[2023-10-01 18:18:12,449] [INFO] - Starting program
+[2023-10-01 18:18:12,449] [INFO] - Logger initialized
+[2023-10-01 18:18:12,449] [INFO] - Loading Configuration
+[2023-10-01 18:18:12,449] [INFO] - Logger append        : False
+[2023-10-01 18:18:12,449] [INFO] - Logger console print : False
+[2023-10-01 18:18:12,449] [INFO] - Logger tail          : False
+[2023-10-01 18:18:12,449] [INFO] - Environment OS       : 1
+[2023-10-01 18:18:12,449] [INFO] - ChromeDriver path    : ""
+[2023-10-01 18:18:12,449] [INFO] - ChromeDriver mode    : 0
+[2023-10-01 18:18:12,449] [INFO] - ChromeDriver pool    : 1
+[2023-10-01 18:18:12,449] [INFO] - ChromeDriver timeout : 10
+[2023-10-01 18:18:12,449] [INFO] - Debug mode           : True
+[2023-10-01 18:18:12,449] [INFO] - Use reloader         : True
+[2023-10-01 18:18:12,449] [INFO] - App port             : 5000
+[2023-10-01 18:18:12,449] [INFO] - Threaded             : True
+[2023-10-01 18:18:12,449] [INFO] - Imported all modules
+[2023-10-01 18:18:12,449] [INFO] - Imported In-House modules
+[2023-10-01 18:18:12,496] [INFO] - MySQL cursor created
+[2023-10-01 18:18:12,496] [INFO] - Secret key set
+[2023-10-01 18:18:12,496] [INFO] - Registered Blueprints
+[2023-10-01 18:18:12,496] [INFO] - Initializing ChromeDriver pool...
+[2023-10-01 18:18:12,496] [INFO] - Using chromedriver mode: 0
+[2023-10-01 18:18:12,496] [INFO] - Using default windows chromedriver
+[2023-10-01 18:18:14,118] [INFO] - Initialized ChromeDriver pool with 1 instances
+[2023-10-01 18:18:16,805] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([])
+[2023-10-01 18:18:18,855] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:33,359] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '"349360a44e7638527559f3c6cb51bc7d"')])
+[2023-10-01 18:18:33,359] [INFO] - Getting ChromeDriver instance
+[2023-10-01 18:18:33,362] [INFO] - Got chromedriver instance
+[2023-10-01 18:18:33,362] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 18:18:35,617] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '"349360a44e7638527559f3c6cb51bc7d')])
+[2023-10-01 18:18:35,617] [INFO] - Getting ChromeDriver instance
+[2023-10-01 18:18:35,617] [INFO] - Got chromedriver instance
+[2023-10-01 18:18:35,617] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 18:18:35,709] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:37,586] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:37,987] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '349360a44e7638527559f3c6cb51bc7d')])
+[2023-10-01 18:18:37,987] [INFO] - Getting ChromeDriver instance
+[2023-10-01 18:18:37,991] [INFO] - Got chromedriver instance
+[2023-10-01 18:18:37,994] [INFO] - Releasing ChromeDriver instance
+[2023-10-01 18:18:39,902] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,064] [ERROR] - "/js/jquery.min.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,065] [ERROR] - "/pexels-tima-miroshnichenko-7985887.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,074] [ERROR] - "/butter.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,085] [ERROR] - "/noise.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,085] [ERROR] - "/logo h  2.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,085] [ERROR] - "/Group 11.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,095] [ERROR] - "/photo-1554167725-89bf8ab26514.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,102] [ERROR] - "/istockphoto-520172844-612x612.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,106] [ERROR] - "/Seth+Hills.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,110] [ERROR] - "/Montserrat-Medium.woff2" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,110] [ERROR] - "/Jura-VariableFont_wght.woff2" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,117] [ERROR] - "/prakrta_.woff2" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,119] [ERROR] - "/Julian-Jordan-press-photo.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:51,119] [ERROR] - "/MUSICAL NIGHT.webp" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:52,611] [INFO] - GET "/" 127.0.0.1
+[2023-10-01 18:18:52,684] [ERROR] - "/favicon.ico" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:53,400] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:54,570] [INFO] - GET "/quick" 127.0.0.1
+[2023-10-01 18:18:56,115] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:56,847] [INFO] - GET "/product" 127.0.0.1
+[2023-10-01 18:18:58,442] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:18:59,222] [INFO] - GET "/reviews" 127.0.0.1
+[2023-10-01 18:19:00,843] [ERROR] - "/service-worker.js" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-01 18:19:03,242] [INFO] - Cleaning up

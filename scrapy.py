@@ -120,18 +120,16 @@ class GoogleScrapy:
         
         json_parsed = []
         for index, row in enumerate(result):
-            if index >= config.max_quick_search_results:
+            if index >= config.max_quick_product_results:
                 break
             tmp = {}
             tmp["hash"] = row[1]
             tmp["store"] = row[2]
             tmp["delivery"] = row[8]
-            # assign float price if not none else none 
             tmp["price"] = float(row[6]) if row[6] is not None else None
             tmp["returns"] = row[9]
             tmp["other_price"] = float(row[7]) if row[7] is not None else None
             tmp["link"] = row[3]
-            # convert to 2023-10-01 15:19:57
             tmp["scraped"] = row[4].strftime("%Y-%m-%d %H:%M:%S")
             tmp["last_scraped"] = row[5].strftime("%Y-%m-%d %H:%M:%S")
             tmp["new_hash"] = row[10] 
@@ -151,7 +149,10 @@ class GoogleScrapy:
         rows = self.driver.find_elements(By.CLASS_NAME, "sh-osd__offer-row")
         tmp = [] 
 
-        for row in rows:
+        for index, row in enumerate(rows):
+            if index >= config.max_deep_product_results:
+                break
+
             store_element = row.find_element(By.CLASS_NAME, "b5ycib")
             store = store_element.text.encode("ascii", "ignore").decode("utf-8")
 
@@ -238,60 +239,147 @@ class GoogleScrapy:
 
         logger.info(f"Successfully inserted {len(tmp)} product links into the database")
 
+        self.scrap_reviews()
+
         return tmp
     
-    # def scrap_product_link_db(self):
-    #     """
-    #                 tmp.append({
-    #             "hash": self.hash,
-    #             "store": store,
-    #             "delivery": delivery,
-    #             "returns": returns,
-    #             "price": price,
-    #             "other_price": other_price,
-    #             "link": link,
-    #             "scraped": timern,
-    #             "last_scraped": timern
-    #         })"""
-        
-        
-        
-    #     con = getDb()
-    #     sql = "SELECT * FROM product_links WHERE hash = %s"
-    #     params = [self.hash]
-    #     con.cursor.execute(sql, params)
-    #     result = con.cursor.fetchall()
-    #     con.cursor.close()
-    #     con.close()
+    def get_reviews(self):
+        con = self.con
 
-    #     if len(result) == 0:
-            
-    #         return jsonify({"error": "Product not found, try deep search"}), 404
-        
-    #     json_parsed = []
+        sql = "SELECT * FROM product_reviews WHERE hash = %s"
+        params = [self.hash]
+        con.cursor.execute(sql, params)
+        result = con.cursor.fetchone()
 
-    #     for index, row in enumerate(result):
-    #         if index > config.max_quick_search_results:
-    #             break
-    #         tmp = {}
-    #         tmp["hash"] = row[2]
-    #         tmp["store"] = row[3]
-    #         tmp["delivery"] = row[4]
-    #         tmp["price"] = row[5]
-    #         tmp["returns"] = row[6]
-    #         tmp["other_price"] = row[7]
-    #         tmp["link"] = row[8]
-    #         tmp["scraped"] = row[9]
-    #         tmp["last_scraped"] = row[10]
-    #         json_parsed.append(tmp)
-        
-    #     return json_parsed
-    
+        if result is None:
+            return jsonify({"error": "Product hash not found, try deep search"}), 404
 
+        """
+        sql = (CREATE TABLE IF NOT EXISTS product_reviews (
+ 0   id INT AUTO_INCREMENT PRIMARY KEY,
+ 1  hash VARCHAR(32) UNIQUE,
+ 2   rating DECIMAL(3, 1),
+ 3   reviews_link LONGTEXT,
+ 4   reviews INT,
+ 5   one_star INT,
+ 6   two_star INT,
+ 7   three_star INT,
+ 8   four_star INT,
+ 9   five_star INT,
+ 10   tags LONGTEXT,
+ 11   scraped DATETIME,
+ 12   last_scraped DATETIME
+)
+"""
+        rev_out = {}
+
+        try:
+            tags = result[10].replace("[", "").replace("]", "").replace("'", "").split(", ")
+        except:
+            tags = None
+
+        try:
+            stars = {
+            "1": result[5],
+            "2": result[6],
+            "3": result[7],
+            "4": result[8],
+            "5": result[9]
+        }
+        except:
+            stars = {
+            "1": None,
+            "2": None,
+            "3": None,
+            "4": None,
+            "5": None
+            }
+
+        rev_out["hash"] = result[1]
+        rev_out["rating"] = result[2]
+        rev_out["reviews_link"] = result[3]
+        rev_out["reviews"] = result[4]
+        rev_out["tags"] = tags
+        rev_out["stars"] = stars
+        rev_out["scraped"] = result[11].strftime("%Y-%m-%d %H:%M:%S")
+        rev_out["last_scraped"] = result[12].strftime("%Y-%m-%d %H:%M:%S")
+
+        return jsonify(rev_out)
+
+
+    def scrap_reviews(self):
+        hash = self.hash
+
+        logger.info(f"Deep search product reviews for {hash}")
+        tags = []
+        page_tags = self.driver.find_element(By.CLASS_NAME, "QPborb")
+        tags_text = page_tags.find_elements(By.TAG_NAME, "a")
+        
+        try:
+            for tag in tags_text:
+                tags.append(tag.text.split("\n")[0])
+        except:
+            tags = None
+
+        try:
+            rating = self.driver.find_element(By.CLASS_NAME, "uYNZm").text
+            rating = float(rating)
+        except:
+            rating = None
+
+        try:
+            reviews = self.driver.find_element(By.CLASS_NAME, "qIEPib").text.split(" ")[0].replace(",", "")
+            reviews = int(reviews)
+        except:
+            reviews = None
+
+        try:
+            reviews_link = self.driver.find_element(By.CLASS_NAME, "Ba4zEd").get_attribute("href")
+        except:
+            reviews_link = None
+
+        star_ratings = ["1", "2", "3", "4", "5"]
+        review_counts = {'1': -1, '2': -1, '3': -1, '4': -1, '5': -1}
+
+        try:
+            elementss = self.driver.find_elements(By.CLASS_NAME, "wNgfq")
+            for index, element in enumerate(elementss):
+                review_counts[star_ratings[index]] = int(element.get_attribute("aria-label").split(" ")[0].replace(",", ""))
+        except:
+            review_counts = None
+
+        con = self.con
+        sql = """INSERT INTO product_reviews (
+            hash,
+            rating,
+            reviews_link,
+            reviews,
+            one_star,
+            two_star,
+            three_star,
+            four_star,
+            five_star,
+            tags,
+            scraped,
+            last_scraped
+        ) VALUES (%s, %s, %s, %s, %s,%s, %s,%s, %s,%s, %s,%s)
+        ON DUPLICATE KEY UPDATE last_scraped=VALUES(last_scraped), rating=VALUES(rating), reviews=VALUES(reviews), one_star=VALUES(one_star), two_star=VALUES(two_star), three_star=VALUES(three_star), four_star=VALUES(four_star), five_star=VALUES(five_star), tags=VALUES(tags)
+        """
+
+        timern = time.strftime('%Y-%m-%d %H:%M:%S')
+
+        val = (
+            hash, rating, reviews_link, reviews, review_counts["1"], review_counts["2"], review_counts["3"], review_counts["4"], review_counts["5"], str(tags), timern, timern
+        )
+
+        con.cursor.execute(sql, val)
+        con.db.commit()
+
+        logger.info(f"Successfully inserted product reviews into the database")
 
 
     def scrap_product_data_db(self):
-        con = getDb()
+        con = self.con
         keywords = self.rproduct.split(" ")
         sql = "SELECT * FROM products WHERE " + " AND ".join(["title LIKE %s"] * len(keywords))
         params = ["%" + keyword + "%" for keyword in keywords]
@@ -417,7 +505,7 @@ class GoogleScrapy:
 
             self.product_data.append(tmp)
 
-        con = getDb()
+        con = self.con
 
         sql = """INSERT INTO products (
     title,
@@ -477,38 +565,3 @@ ON DUPLICATE KEY UPDATE last_scraped=VALUES(last_scraped), price=VALUES(price), 
         logger.info(f"Successfully inserted {len(self.product_data)} products into the database")
 
         return self.product_data
-
-    def parse(self, response):
-        self.products = self.driver.find_elements(By.CLASS_NAME, "sh-dgr__grid-result")
-        for product in self.products:
-            tmp = {}
-            divs = product.find_elements(By.TAG_NAME, "div")
-            imgs = product.find_elements(By.TAG_NAME, "img")
-            links = product.find_elements(By.TAG_NAME, "a")
-            for div in divs:
-                if div.get_attribute("class") == "EI11Pd":
-                    tmp["title"] = div.text
-                elif div.get_attribute("class") == "sh-dgr__content":
-                    tmp["price"] = div.text
-            for img in imgs:
-                tmp["img"] = img.get_attribute("src")
-            for link in links:
-                tmp["link"] = link.get_attribute("href")
-
-            self.product_data.append(tmp)
-        return self.product_data
-
-
-def scrap(product):
-    product = product.replace(" ", "+")
-    url = "https://www.google.com/search?q=" + product + "&tbm=shop"
-    driver = chromedriver.get_chromedriver()
-    if driver:
-        try:
-            driver.get(url)
-            return driver.page_source
-        finally:
-            chromedriver.release_chromedriver(driver)
-    else:
-        logger.error("Failed to get chromedriver instance")
-        return None

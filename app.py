@@ -1,23 +1,13 @@
 
 import chromedriver
 from search_controller import search_bp
-import scrapy
 import atexit
-import threading
-import time
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
 from selenium import webdriver
-from bs4 import BeautifulSoup
-import requests
-import json
-import re
-import MySQLdb.cursors
-from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import config
 from logger import logger
 
+import mysql.connector
 
 logger.info("\n ############################### \n")
 logger.info("Starting program")
@@ -43,21 +33,14 @@ logger.info("Imported all modules")
 
 logger.info("Imported In-House modules")
 
-# connect to MySQL
-
-
-# MySQL configurations
-
 
 
 
 app = Flask(__name__)
 
-import mysql.connector
 
 
 
-# connect to database
 db = mysql.connector.connect(
 host=config.database_host,
 user=config.database_user,
@@ -75,8 +58,6 @@ database=config.database_name )
 cursor = db.cursor(buffered=True)
 
 logger.info("MySQL cursor created")
-
-# create and return a unique db & cursor for the object
 
 
 
@@ -105,7 +86,7 @@ logger.info("MySQL cursor created")
   "scraped": 1695750538.90776
 }"""
 
-# create tale if not exists
+
 sql = ("""CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
@@ -130,8 +111,7 @@ sql = ("""CREATE TABLE IF NOT EXISTS products (
 
 cursor.execute(sql)
 
-# create a table for the specific product | use product hash as key to locate product | there may be multiple products with the same hash but different links
-# table must have id, hash, link, scraped, last_scraped store price delivery returns
+
 sql = ("""CREATE TABLE IF NOT EXISTS product_links (
     id INT AUTO_INCREMENT PRIMARY KEY,
     hash VARCHAR(32),
@@ -149,12 +129,10 @@ sql = ("""CREATE TABLE IF NOT EXISTS product_links (
 
 cursor.execute(sql)
 
-# create a table reviews for the specific product | use product hash as key to locate product | there may be multiple products with the same hash but different links
-# should have id, hash, rating, reviews_link, 1-star reviews, 2-star reviews, 3-star reviews, 4-star reviews, 5-star reviews, tags, scraped, last_scraped
 
 sql = ("""CREATE TABLE IF NOT EXISTS product_reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    hash VARCHAR(32),
+    hash VARCHAR(32) UNIQUE,
     rating DECIMAL(3, 1),
     reviews_link LONGTEXT,
     reviews INT,
@@ -198,6 +176,20 @@ def index_db_search():
     path = request.path
     logger.info("GET \"" + path + "\" " + str(ip))
     return render_template('searchdb.html')
+
+@app.route('/product', methods=['GET'])
+def index_product():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    return render_template('product.html')
+
+@app.route('/reviews', methods=['GET'])
+def index_reviews():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    return render_template('rev.html')
 
 @app.route('/restart', methods=['GET'])
 def restart():
@@ -261,5 +253,30 @@ if __name__ == "__main__":
     app_port = config.app_port or 5000
     use_reloader = config.use_reloader
     threaded = config.threaded
-    app.run(debug=debug_mode, port=app_port)
-    # ,use_reloader=use_reloader, threaded=threaded)
+    app.run(debug=debug_mode, port=app_port,use_reloader=use_reloader, threaded=threaded)
+
+
+# Pro Scraper | By Jesvi Jonathan
+
+
+# /                     | Home | Deep Search Console
+# /quick                | Quick Search Console
+# /restart              | Restart all ChromeDriver instances
+# /product              | Product Console
+# /reviews              | Reviews Console
+
+# /api/search           | Deep Search API
+# /api/quick_search     | Quick Search API
+# /api/deep_search      | Deep Search API
+
+# /api/product          | Product API
+# /api/product_quick    | Product API
+# /api/product_deep     | Product API
+
+# you can pass searchQuery as a GET parameter or as a POST parameter via form data or JSON data
+
+# use searchQuery with search API
+# exmaple : /api/search?searchQuery=iphone+13
+
+# use product Hash with product API | you can get product hash from search resopnse
+# exmaple : /api/product_quick?searchQuery=01e54b2ceb0307cfa650615282ec8239

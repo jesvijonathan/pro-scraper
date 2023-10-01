@@ -3,7 +3,7 @@ from flask.views import MethodView
 from logger import logger
 import scrapy
 
-search_bp = Blueprint('search', __name__)
+search_bp = Blueprint('api', __name__)
 
 class SearchView(MethodView):
     def __init__(self):
@@ -21,18 +21,20 @@ class SearchView(MethodView):
         result = scrapy.GoogleScrapy(search_query)
 
         try:
-            if self.path == '/search':
+            if self.path == '/api/search':
                 return result.scrap_product_data_db()
-            elif self.path == '/search/deep_search':
+            elif self.path == '/api/deep_search':
                 return result.scrape_product_data()
-            elif self.path == '/search/quick_search':
+            elif self.path == '/api/quick_search':
                 return result.scrap_product_data_db()
-            elif self.path == '/search/product':
+            elif self.path == '/api/product':
                 return result.scrap_product()
-            elif self.path == '/search/product_quick':
+            elif self.path == '/api/product_quick':
                 return result.scrap_product()
-            elif self.path == '/search/product_deep':
+            elif self.path == '/api/product_deep':
                 return result.scrap_product(deep=True)
+            elif self.path == '/api/reviews':
+                return result.get_reviews()
             else:
                 return jsonify({'error': 'Invalid URL'}), 404
         except Exception as e:
@@ -47,9 +49,10 @@ class SearchView(MethodView):
         logger.info(f"POST \"{self.path}\" {self.ip} {str(self.form)}")
         return self.handle_search(lambda result: result.scrape_product_data())
 
-search_bp.add_url_rule('/search', view_func=SearchView.as_view('search_search_view'))
-search_bp.add_url_rule('/search/quick_search', view_func=SearchView.as_view('search_quickSearch_view'))
-search_bp.add_url_rule('/search/deep_search', view_func=SearchView.as_view('search_deepSearch_view'))
-search_bp.add_url_rule('/search/product', view_func=SearchView.as_view('search_product_view'))  # Use a unique endpoint name here
-search_bp.add_url_rule('/search/product_quick', view_func=SearchView.as_view('search_productQuick_view'))  # Use a unique endpoint name here
-search_bp.add_url_rule('/search/product_deep', view_func=SearchView.as_view('search_productDeep_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/api/search', view_func=SearchView.as_view('search_search_view'))
+search_bp.add_url_rule('/api/quick_search', view_func=SearchView.as_view('search_quickSearch_view'))
+search_bp.add_url_rule('/api/deep_search', view_func=SearchView.as_view('search_deepSearch_view'))
+search_bp.add_url_rule('/api/product', view_func=SearchView.as_view('search_product_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/api/product_quick', view_func=SearchView.as_view('search_productQuick_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/api/product_deep', view_func=SearchView.as_view('search_productDeep_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/api/reviews', view_func=SearchView.as_view('search_reviews_view'))  # Use a unique endpoint name here
