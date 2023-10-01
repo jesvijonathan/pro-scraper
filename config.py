@@ -1,6 +1,6 @@
 logger_append = False   # set to True to append logs.log | False to overwrite
 logger_console_print = False   # set to True to print logs to console
-logger_tail = True   # set to True to tail live logs.log
+logger_tail = False   # set to True to tail live logs.log
 
 env_os = 1       # 0 : "linux" or 1 : "windows"
 
@@ -8,7 +8,7 @@ env_os = 1       # 0 : "linux" or 1 : "windows"
 chromedriver_path = ""
 chromedriver_mode = 0       # 0 : "headless" or 1 : "normal" or 2 : "maximized"
 # set to number of chromedriver instances to run in parallel
-chromedriver_pool_size = 4
+chromedriver_pool_size = 2
 # set to number of seconds to wait for a chromedriver instance to become available
 chromedriver_timeout = 10
 

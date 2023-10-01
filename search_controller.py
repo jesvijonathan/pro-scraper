@@ -20,26 +20,26 @@ class SearchView(MethodView):
 
         result = scrapy.GoogleScrapy(search_query)
 
-        try:
-            if self.path == '/api/search':
-                return result.scrap_product_data_db()
-            elif self.path == '/api/deep_search':
-                return result.scrape_product_data()
-            elif self.path == '/api/quick_search':
-                return result.scrap_product_data_db()
-            elif self.path == '/api/product':
-                return result.scrap_product()
-            elif self.path == '/api/product_quick':
-                return result.scrap_product()
-            elif self.path == '/api/product_deep':
-                return result.scrap_product(deep=True)
-            elif self.path == '/api/reviews':
-                return result.get_reviews()
-            else:
-                return jsonify({'error': 'Invalid URL'}), 404
-        except Exception as e:
-            logger.error(f"Exception: {str(e)}")
-            return jsonify({'error': str(e)}), 500
+        # try:
+        if self.path == '/api/search':
+            return result.scrap_product_data_db()
+        elif self.path == '/api/deep_search':
+            return result.scrape_product_data()
+        elif self.path == '/api/quick_search':
+            return result.scrap_product_data_db()
+        elif self.path == '/api/product':
+            return result.scrap_product()
+        elif self.path == '/api/product_quick':
+            return result.scrap_product()
+        elif self.path == '/api/product_deep':
+            return result.scrap_product(deep=True)
+        elif self.path == '/api/reviews':
+            return result.get_reviews()
+        else:
+            return jsonify({'error': 'Invalid URL'}), 404
+        # except Exception as e:
+        #     logger.error(f"Exception: {str(e)}")
+        #     return jsonify({'error': str(e)}), 500
 
     def get(self):
         logger.info(f"GET \"{self.path}\" {self.ip} {str(self.form)} {str(self.request.args)}")

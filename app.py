@@ -253,7 +253,8 @@ if __name__ == "__main__":
     app_port = config.app_port or 5000
     use_reloader = config.use_reloader
     threaded = config.threaded
-    app.run(debug=debug_mode, port=app_port,use_reloader=use_reloader, threaded=threaded)
+    app.run(debug=debug_mode, port=app_port) 
+    #use_reloader=use_reloader, threaded=threaded)
 
 
 # Pro Scraper | By Jesvi Jonathan
