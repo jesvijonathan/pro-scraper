@@ -251,7 +251,7 @@ atexit.register(cleanup)
 if __name__ == "__main__":
     debug_mode = config.debug_mode or False
     app_port = config.app_port or 5000
-    use_reloader = config.use_reloader
+    use_reloader =   config.use_reloader
     threaded = config.threaded
     app.run(debug=debug_mode, port=app_port) 
     #use_reloader=use_reloader, threaded=threaded)
