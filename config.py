@@ -10,7 +10,7 @@ chromedriver_mode = 0       # 0 : "headless" or 1 : "normal" or 2 : "maximized"
 # set to number of chromedriver instances to run in parallel
 chromedriver_pool_size = 2
 # set to number of seconds to wait for a chromedriver instance to become available
-chromedriver_timeout = 10
+chromedriver_timeout = 15
 
 debug_mode = True    # set to True to enable debug mode
 use_reloader = True   # set to True to enable auto reload on code changes
