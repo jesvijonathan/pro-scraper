@@ -29,3 +29,14 @@
 [2023-10-02 12:15:21,036] [INFO] - Using chromedriver mode: 0
 [2023-10-02 12:15:21,036] [INFO] - Using default windows chromedriver
 [2023-10-02 12:15:22,536] [INFO] - Initialized ChromeDriver pool with 2 instances
+[2023-10-02 12:15:53,561] [INFO] - GET "/" 127.0.0.1
+[2023-10-02 12:15:58,353] [INFO] - POST "/api/search" 127.0.0.1 {'searchQuery': 'iphone'}
+[2023-10-02 12:15:58,353] [INFO] - Getting ChromeDriver instance
+[2023-10-02 12:15:58,358] [INFO] - Got chromedriver instance
+[2023-10-02 12:15:58,366] [INFO] - Releasing ChromeDriver instance
+[2023-10-02 12:16:06,151] [INFO] - POST "/api/search" 127.0.0.1 {'searchQuery': 'pigeon cooker'}
+[2023-10-02 12:16:06,151] [INFO] - Getting ChromeDriver instance
+[2023-10-02 12:16:06,151] [INFO] - Got chromedriver instance
+[2023-10-02 12:16:06,158] [INFO] - Deep search product data for pigeon+cooker
+[2023-10-02 12:16:21,992] [INFO] - Successfully inserted 11 products into the database
+[2023-10-02 12:16:21,995] [INFO] - Releasing ChromeDriver instance
