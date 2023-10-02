@@ -1,40 +1,28 @@
-[2023-10-02 11:25:56,516] [INFO] - 
+[2023-10-02 12:15:19,461] [INFO] - 
  ############################### 
 
-[2023-10-02 11:25:56,516] [INFO] - Starting program
-[2023-10-02 11:25:56,516] [INFO] - Logger initialized
-[2023-10-02 11:25:56,516] [INFO] - Loading Configuration
-[2023-10-02 11:25:56,516] [INFO] - Logger append        : False
-[2023-10-02 11:25:56,516] [INFO] - Logger console print : False
-[2023-10-02 11:25:56,516] [INFO] - Logger tail          : False
-[2023-10-02 11:25:56,516] [INFO] - Environment OS       : 1
-[2023-10-02 11:25:56,516] [INFO] - ChromeDriver path    : ""
-[2023-10-02 11:25:56,516] [INFO] - ChromeDriver mode    : 0
-[2023-10-02 11:25:56,516] [INFO] - ChromeDriver pool    : 2
-[2023-10-02 11:25:56,516] [INFO] - ChromeDriver timeout : 10
-[2023-10-02 11:25:56,516] [INFO] - Debug mode           : True
-[2023-10-02 11:25:56,516] [INFO] - Use reloader         : True
-[2023-10-02 11:25:56,516] [INFO] - App port             : 5000
-[2023-10-02 11:25:56,516] [INFO] - Threaded             : True
-[2023-10-02 11:25:56,516] [INFO] - Imported all modules
-[2023-10-02 11:25:56,516] [INFO] - Imported In-House modules
-[2023-10-02 11:25:56,548] [INFO] - MySQL database created
-[2023-10-02 11:25:56,548] [INFO] - MySQL cursor created
-[2023-10-02 11:25:56,548] [INFO] - MySQL tables created
-[2023-10-02 11:25:56,548] [INFO] - Secret key set
-[2023-10-02 11:25:56,556] [INFO] - Registered Blueprints
-[2023-10-02 11:25:56,556] [INFO] - Initializing ChromeDriver pool...
-[2023-10-02 11:25:56,556] [INFO] - Using chromedriver mode: 0
-[2023-10-02 11:25:56,556] [INFO] - Using default windows chromedriver
-[2023-10-02 11:25:58,163] [INFO] - Using chromedriver mode: 0
-[2023-10-02 11:25:58,163] [INFO] - Using default windows chromedriver
-[2023-10-02 11:25:59,742] [INFO] - Initialized ChromeDriver pool with 2 instances
-[2023-10-02 11:26:02,385] [INFO] - GET "/" 127.0.0.1
-[2023-10-02 11:26:02,445] [ERROR] - "/favicon.ico" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
-[2023-10-02 11:26:06,896] [INFO] - POST "/api/search" 127.0.0.1 {'searchQuery': 'samsung s23'}
-[2023-10-02 11:26:06,896] [INFO] - Getting ChromeDriver instance
-[2023-10-02 11:26:06,899] [INFO] - Got chromedriver instance
-[2023-10-02 11:26:06,944] [INFO] - Deep search product data for samsung+s23
-[2023-10-02 11:26:21,667] [INFO] - Successfully inserted 11 products into the database
-[2023-10-02 11:26:21,667] [INFO] - Releasing ChromeDriver instance
-[2023-10-02 11:26:29,454] [INFO] - Cleaning up
+[2023-10-02 12:15:19,461] [INFO] - Starting program
+[2023-10-02 12:15:19,461] [INFO] - Logger initialized
+[2023-10-02 12:15:19,461] [INFO] - Loading Configuration
+[2023-10-02 12:15:19,461] [INFO] - Logger append        : False
+[2023-10-02 12:15:19,461] [INFO] - Logger console print : False
+[2023-10-02 12:15:19,461] [INFO] - Logger tail          : False
+[2023-10-02 12:15:19,461] [INFO] - Environment OS       : 1
+[2023-10-02 12:15:19,461] [INFO] - ChromeDriver path    : ""
+[2023-10-02 12:15:19,461] [INFO] - ChromeDriver mode    : 0
+[2023-10-02 12:15:19,461] [INFO] - ChromeDriver pool    : 2
+[2023-10-02 12:15:19,461] [INFO] - ChromeDriver timeout : 15
+[2023-10-02 12:15:19,461] [INFO] - Debug mode           : True
+[2023-10-02 12:15:19,461] [INFO] - Use reloader         : True
+[2023-10-02 12:15:19,461] [INFO] - App port             : 5000
+[2023-10-02 12:15:19,461] [INFO] - Threaded             : True
+[2023-10-02 12:15:19,461] [INFO] - Imported all modules
+[2023-10-02 12:15:19,461] [INFO] - Imported In-House modules
+[2023-10-02 12:15:19,487] [INFO] - MySQL database created
+[2023-10-02 12:15:19,494] [INFO] - MySQL cursor created
+[2023-10-02 12:15:19,496] [INFO] - MySQL tables created
+[2023-10-02 12:15:19,496] [INFO] - Secret key set
+[2023-10-02 12:15:19,496] [INFO] - Registered Blueprints
+[2023-10-02 12:15:19,496] [INFO] - Initializing ChromeDriver pool...
+[2023-10-02 12:15:19,496] [INFO] - Using chromedriver mode: 0
+[2023-10-02 12:15:19,496] [INFO] - Using default windows chromedriver
