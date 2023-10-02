@@ -1,50 +1,40 @@
-[2023-10-01 22:23:00,510] [INFO] - 
+[2023-10-02 11:25:56,516] [INFO] - 
  ############################### 
 
-[2023-10-01 22:23:00,510] [INFO] - Starting program
-[2023-10-01 22:23:00,510] [INFO] - Logger initialized
-[2023-10-01 22:23:00,510] [INFO] - Loading Configuration
-[2023-10-01 22:23:00,510] [INFO] - Logger append        : False
-[2023-10-01 22:23:00,510] [INFO] - Logger console print : False
-[2023-10-01 22:23:00,510] [INFO] - Logger tail          : False
-[2023-10-01 22:23:00,510] [INFO] - Environment OS       : 1
-[2023-10-01 22:23:00,510] [INFO] - ChromeDriver path    : ""
-[2023-10-01 22:23:00,510] [INFO] - ChromeDriver mode    : 0
-[2023-10-01 22:23:00,510] [INFO] - ChromeDriver pool    : 2
-[2023-10-01 22:23:00,510] [INFO] - ChromeDriver timeout : 10
-[2023-10-01 22:23:00,510] [INFO] - Debug mode           : True
-[2023-10-01 22:23:00,510] [INFO] - Use reloader         : True
-[2023-10-01 22:23:00,510] [INFO] - App port             : 5000
-[2023-10-01 22:23:00,510] [INFO] - Threaded             : True
-[2023-10-01 22:23:00,510] [INFO] - Imported all modules
-[2023-10-01 22:23:00,510] [INFO] - Imported In-House modules
-[2023-10-01 22:23:00,539] [INFO] - MySQL cursor created
-[2023-10-01 22:23:00,547] [INFO] - Secret key set
-[2023-10-01 22:23:00,547] [INFO] - Registered Blueprints
-[2023-10-01 22:23:00,547] [INFO] - Initializing ChromeDriver pool...
-[2023-10-01 22:23:00,547] [INFO] - Using chromedriver mode: 0
-[2023-10-01 22:23:00,547] [INFO] - Using default windows chromedriver
-[2023-10-01 22:23:02,106] [INFO] - Using chromedriver mode: 0
-[2023-10-01 22:23:02,106] [INFO] - Using default windows chromedriver
-[2023-10-01 22:23:03,689] [INFO] - Initialized ChromeDriver pool with 2 instances
-[2023-10-01 22:23:07,256] [INFO] - POST "/api/deep_search" 127.0.0.1 {'searchQuery': 'iphone 13'}
-[2023-10-01 22:23:07,256] [INFO] - Getting ChromeDriver instance
-[2023-10-01 22:23:07,259] [INFO] - Got chromedriver instance
-[2023-10-01 22:23:07,259] [INFO] - Deep search product data for iphone+13
-[2023-10-01 22:23:32,317] [INFO] - Successfully inserted 31 products into the database
-[2023-10-01 22:23:32,317] [INFO] - Releasing ChromeDriver instance
-[2023-10-01 22:24:20,066] [INFO] - GET "/product" 127.0.0.1
-[2023-10-01 22:24:22,749] [INFO] - POST "/api/product" 127.0.0.1 {'searchQuery': '01e54b2ceb0307cfa650615282ec8239'}
-[2023-10-01 22:24:22,749] [INFO] - Getting ChromeDriver instance
-[2023-10-01 22:24:22,757] [INFO] - Got chromedriver instance
-[2023-10-01 22:24:22,757] [INFO] - Deep search product links for 01e54b2ceb0307cfa650615282ec8239
-[2023-10-01 22:24:27,088] [INFO] - Successfully inserted 10 product links into the database
-[2023-10-01 22:24:27,088] [INFO] - Deep search product reviews for 01e54b2ceb0307cfa650615282ec8239
-[2023-10-01 22:24:27,524] [INFO] - Successfully inserted product reviews into the database
-[2023-10-01 22:24:27,524] [INFO] - Releasing ChromeDriver instance
-[2023-10-01 22:24:42,002] [INFO] - GET "/reviews" 127.0.0.1
-[2023-10-01 22:24:45,759] [INFO] - POST "/api/reviews" 127.0.0.1 {'searchQuery': '01e54b2ceb0307cfa650615282ec8239'}
-[2023-10-01 22:24:45,759] [INFO] - Getting ChromeDriver instance
-[2023-10-01 22:24:45,767] [INFO] - Got chromedriver instance
-[2023-10-01 22:24:45,767] [INFO] - Releasing ChromeDriver instance
-[2023-10-01 22:27:58,708] [INFO] - Cleaning up
+[2023-10-02 11:25:56,516] [INFO] - Starting program
+[2023-10-02 11:25:56,516] [INFO] - Logger initialized
+[2023-10-02 11:25:56,516] [INFO] - Loading Configuration
+[2023-10-02 11:25:56,516] [INFO] - Logger append        : False
+[2023-10-02 11:25:56,516] [INFO] - Logger console print : False
+[2023-10-02 11:25:56,516] [INFO] - Logger tail          : False
+[2023-10-02 11:25:56,516] [INFO] - Environment OS       : 1
+[2023-10-02 11:25:56,516] [INFO] - ChromeDriver path    : ""
+[2023-10-02 11:25:56,516] [INFO] - ChromeDriver mode    : 0
+[2023-10-02 11:25:56,516] [INFO] - ChromeDriver pool    : 2
+[2023-10-02 11:25:56,516] [INFO] - ChromeDriver timeout : 10
+[2023-10-02 11:25:56,516] [INFO] - Debug mode           : True
+[2023-10-02 11:25:56,516] [INFO] - Use reloader         : True
+[2023-10-02 11:25:56,516] [INFO] - App port             : 5000
+[2023-10-02 11:25:56,516] [INFO] - Threaded             : True
+[2023-10-02 11:25:56,516] [INFO] - Imported all modules
+[2023-10-02 11:25:56,516] [INFO] - Imported In-House modules
+[2023-10-02 11:25:56,548] [INFO] - MySQL database created
+[2023-10-02 11:25:56,548] [INFO] - MySQL cursor created
+[2023-10-02 11:25:56,548] [INFO] - MySQL tables created
+[2023-10-02 11:25:56,548] [INFO] - Secret key set
+[2023-10-02 11:25:56,556] [INFO] - Registered Blueprints
+[2023-10-02 11:25:56,556] [INFO] - Initializing ChromeDriver pool...
+[2023-10-02 11:25:56,556] [INFO] - Using chromedriver mode: 0
+[2023-10-02 11:25:56,556] [INFO] - Using default windows chromedriver
+[2023-10-02 11:25:58,163] [INFO] - Using chromedriver mode: 0
+[2023-10-02 11:25:58,163] [INFO] - Using default windows chromedriver
+[2023-10-02 11:25:59,742] [INFO] - Initialized ChromeDriver pool with 2 instances
+[2023-10-02 11:26:02,385] [INFO] - GET "/" 127.0.0.1
+[2023-10-02 11:26:02,445] [ERROR] - "/favicon.ico" 404 127.0.0.1 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+[2023-10-02 11:26:06,896] [INFO] - POST "/api/search" 127.0.0.1 {'searchQuery': 'samsung s23'}
+[2023-10-02 11:26:06,896] [INFO] - Getting ChromeDriver instance
+[2023-10-02 11:26:06,899] [INFO] - Got chromedriver instance
+[2023-10-02 11:26:06,944] [INFO] - Deep search product data for samsung+s23
+[2023-10-02 11:26:21,667] [INFO] - Successfully inserted 11 products into the database
+[2023-10-02 11:26:21,667] [INFO] - Releasing ChromeDriver instance
+[2023-10-02 11:26:29,454] [INFO] - Cleaning up

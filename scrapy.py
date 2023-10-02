@@ -57,6 +57,7 @@ class GoogleScrapy:
             logger.error("Failed to get chromedriver instance")
 
     def __del__(self):
+        self.con.close()
         chromedriver.release_chromedriver(self.driver)
 
     def scrap_product(self, deep=False):
@@ -134,6 +135,8 @@ class GoogleScrapy:
             tmp["last_scraped"] = row[5].strftime("%Y-%m-%d %H:%M:%S")
             tmp["new_hash"] = row[10] 
             json_parsed.append(tmp)
+        
+        con.close()
  
         return jsonify(json_parsed)
 
@@ -240,6 +243,8 @@ class GoogleScrapy:
         logger.info(f"Successfully inserted {len(tmp)} product links into the database")
 
         self.scrap_reviews()
+        
+        con.close()
 
         return tmp
     
@@ -304,6 +309,7 @@ class GoogleScrapy:
         rev_out["scraped"] = result[11].strftime("%Y-%m-%d %H:%M:%S")
         rev_out["last_scraped"] = result[12].strftime("%Y-%m-%d %H:%M:%S")
 
+        con.close()
         return jsonify(rev_out)
 
 
@@ -346,7 +352,7 @@ class GoogleScrapy:
             for index, element in enumerate(elementss):
                 review_counts[star_ratings[index]] = int(element.get_attribute("aria-label").split(" ")[0].replace(",", ""))
         except:
-            review_counts = None
+            review_counts = {'1': -1, '2': -1, '3': -1, '4': -1, '5': -1}
 
         con = self.con
         sql = """INSERT INTO product_reviews (
@@ -385,8 +391,6 @@ class GoogleScrapy:
         params = ["%" + keyword + "%" for keyword in keywords]
         con.cursor.execute(sql, params)
         result = con.cursor.fetchall()
-        con.cursor.close()
-        con.close()
 
         if len(result) == 0:
             self.scrape_product_data()
@@ -420,6 +424,7 @@ class GoogleScrapy:
             tmp["verified"] = row[12]
             json_parsed.append(tmp)
 
+        con.close()
         return json_parsed
 
     def scrape_product_data(self):
@@ -563,5 +568,5 @@ ON DUPLICATE KEY UPDATE last_scraped=VALUES(last_scraped), price=VALUES(price), 
         con.db.commit()
 
         logger.info(f"Successfully inserted {len(self.product_data)} products into the database")
-
+        con.close()
         return self.product_data

@@ -8,6 +8,7 @@ import config
 from logger import logger
 
 import mysql.connector
+import time
 
 logger.info("\n ############################### \n")
 logger.info("Starting program")
@@ -49,6 +50,10 @@ password=config.database_password)
 cursor = db.cursor(buffered=True)
 sql = "CREATE DATABASE IF NOT EXISTS {s0}".format(s0=config.database_name)
 cursor.execute(sql)
+
+cursor.close()
+db.close()
+logger.info("MySQL database created")
 
 db = mysql.connector.connect(
 host=config.database_host,
@@ -148,6 +153,10 @@ sql = ("""CREATE TABLE IF NOT EXISTS product_reviews (
 
 cursor.execute(sql)
 
+cursor.close()
+db.close()
+logger.info("MySQL tables created")
+
 
 
 app.secret_key = config.secret_key
@@ -163,6 +172,13 @@ chromedriver.init_chromedriver_pool()
 
 
 @app.route('/', methods=['GET'])
+def index2():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    return render_template('main.html')
+
+@app.route('/deep', methods=['GET'])
 def index():
     ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
     path = request.path
@@ -198,6 +214,27 @@ def restart():
     logger.info("GET \"" + path + "\" " + str(ip))
     chromedriver.restart_all_chrome_drivers()
     return "Restarted all ChromeDriver instances"
+
+@app.route('/restart_db', methods=['GET'])
+def restart_db():
+    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    path = request.path
+    logger.info("GET \"" + path + "\" " + str(ip))
+    # restart connection to database
+    db = mysql.connector.connect(
+    host=config.database_host,
+    user=config.database_user,
+    password=config.database_password,
+    database=config.database_name )
+    cursor = db.cursor(buffered=True)
+    logger.info("MySQL cursor created")
+    # close connection to database
+    time.sleep(1)
+    cursor.close()
+    db.close()
+    logger.info("MySQL connection closed")
+
+    return "Restarted a connection"
 
 """
     driver = chromedriver.get_chromedriver()

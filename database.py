@@ -1,6 +1,7 @@
 
 import mysql.connector
 import config
+from logger import logger
 
 class getDb:
 
@@ -16,5 +17,8 @@ class getDb:
         return self.db, self.cursor
 
     def close(self):
-        self.cursor.close()
-        self.db.close()
+        try:
+            self.cursor.close()
+            self.db.close()
+        except:
+            logger.error("Error while closing MySQL cursor and connection")
