@@ -99,3 +99,20 @@ exmaple : /api/product_quick?searchQuery=01e54b2ceb0307cfa650615282ec8239 -->
     },
   });
   ```
+
+  <!-- other url -->
+
+<br>
+## Other Endpoints :
+
+- `api/search/product`
+- `api/search/product_quick`
+- `api/search/product_deep`
+  <br>
+- `api/search/reviews`
+- `api/search/reviews_quick`
+- `api/search/reviews_deep`
+  <br>
+- `api/search/search`
+- `api/search/search_quick`
+- `api/search/search_deep`
