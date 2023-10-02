@@ -26,3 +26,6 @@
 [2023-10-02 12:15:19,496] [INFO] - Initializing ChromeDriver pool...
 [2023-10-02 12:15:19,496] [INFO] - Using chromedriver mode: 0
 [2023-10-02 12:15:19,496] [INFO] - Using default windows chromedriver
+[2023-10-02 12:15:21,036] [INFO] - Using chromedriver mode: 0
+[2023-10-02 12:15:21,036] [INFO] - Using default windows chromedriver
+[2023-10-02 12:15:22,536] [INFO] - Initialized ChromeDriver pool with 2 instances
