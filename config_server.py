@@ -12,7 +12,7 @@ chromedriver_pool_size = 2
 # set to number of seconds to wait for a chromedriver instance to become available
 chromedriver_timeout = 30
 
-debug_mode = True    # set to True to enable debug mode
+debug_mode = False    # set to True to enable debug mode
 use_reloader = True   # set to True to enable auto reload on code changes
 app_port = 5000    # set to port number to run server on
 threaded = True    # set to True to enable multi-threading

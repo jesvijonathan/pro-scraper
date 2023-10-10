@@ -6,7 +6,7 @@ from selenium import webdriver
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import config
 from logger import logger
-
+from flask_cors import CORS
 import mysql.connector
 import time
 
@@ -38,6 +38,9 @@ logger.info("Imported In-House modules")
 
 
 app = Flask(__name__)
+CORS(app)
+ 
+# CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
 
 
@@ -159,8 +162,8 @@ logger.info("MySQL tables created")
 
 
 
-app.secret_key = config.secret_key
-logger.info("Secret key set")
+#app.secret_key = config.secret_key
+#logger.info("Secret key set")
 
 
 
@@ -220,7 +223,7 @@ def restart_db():
     ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
     path = request.path
     logger.info("GET \"" + path + "\" " + str(ip))
-    # restart connection to database
+ 
     db = mysql.connector.connect(
     host=config.database_host,
     user=config.database_user,
@@ -228,7 +231,7 @@ def restart_db():
     database=config.database_name )
     cursor = db.cursor(buffered=True)
     logger.info("MySQL cursor created")
-    # close connection to database
+ 
     time.sleep(1)
     cursor.close()
     db.close()

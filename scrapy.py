@@ -71,7 +71,7 @@ class GoogleScrapy:
 
 
         if result is None:
-            return jsonify({"error": "Product hash not found, try deep search"}), 404
+            return jsonify({"error": "Product hash not found in products, try deep search"}), 404
         
         json_parsed = json_format_1.copy()
         json_parsed["additional_info"] = result[14]
@@ -91,15 +91,20 @@ class GoogleScrapy:
         }
         json_parsed["scraped"] = result[17]
         json_parsed["shipping"] = result[3]
-        json_parsed["tags"] = [tag for tag in result[1].split(" ") if tag.isalnum()]
-        json_parsed["title"] = result[1]
+        if result[1] is not None:
+            json_parsed["tags"] = [tag for tag in result[1].split(" ") if tag.isalnum()]
+            json_parsed["title"] = result[1]
+        else:
+            json_parsed["tags"] = None
+            json_parsed["title"] = result[2]
         json_parsed["verified"] = result[12]
 
 
         try:
             self.main_link = json_parsed["other_links"][1]
+            print(json_parsed["other_links"][1])
         except:
-            return jsonify({"error": "Product links not available, try fetching updated data using deep search"}), 404
+            return jsonify({"error": "Product hash not found in products, try deep search"}, json_parsed), 404
         
         if deep:
             result = self.scrap_product_link_deep()
@@ -257,7 +262,7 @@ class GoogleScrapy:
         result = con.cursor.fetchone()
 
         if result is None:
-            return jsonify({"error": "Product hash not found, try deep search"}), 404
+            return jsonify({"error": "Product hash not found in reviews or reviews not available for product, try deep search"}), 404
 
         """
         sql = (CREATE TABLE IF NOT EXISTS product_reviews (
@@ -285,11 +290,11 @@ class GoogleScrapy:
 
         try:
             stars = {
-            "1": result[5],
-            "2": result[6],
+            "5": result[5],
+            "4": result[6],
             "3": result[7],
-            "4": result[8],
-            "5": result[9]
+            "2": result[8],
+            "1": result[9]
         }
         except:
             stars = {
@@ -384,18 +389,24 @@ class GoogleScrapy:
         logger.info(f"Successfully inserted product reviews into the database")
 
 
-    def scrap_product_data_db(self):
+    def scrap_product_data_db(self, go4deep=False):
         con = self.con
         keywords = self.rproduct.split(" ")
-        sql = "SELECT * FROM products WHERE " + " AND ".join(["title LIKE %s"] * len(keywords))
-        params = ["%" + keyword + "%" for keyword in keywords]
+        
+        # sql = "SELECT * FROM products WHERE " + " OR ".join(["tags LIKE %s"] * len(keywords)) + " OR hash = %s"
+
+        sql = "SELECT * FROM products WHERE " + " OR ".join(["tags LIKE %s"] * len(keywords)) + " OR hash = %s"
+        params = ["%" + keyword + "%" for keyword in keywords] + [self.hash]
         con.cursor.execute(sql, params)
         result = con.cursor.fetchall()
 
         if len(result) == 0:
-            self.scrape_product_data()
-            return self.product_data
-
+            if go4deep:
+                self.scrape_product_data()
+                return self.product_data
+            else:
+                return jsonify({"error": "Product not found, try deep search"}), 404
+            
         json_parsed = []
 
         for index, row in enumerate(result):
@@ -404,11 +415,11 @@ class GoogleScrapy:
             tmp = json_format_1.copy()
             tmp["additional_info"] = row[14]
             tmp["hash"] = row[2]
-            tmp["img"] = row[4]
+            tmp["img"] = row[3]
             tmp["in_stock"] = row[11]
             tmp["last_scraped"] = row[18]
             tmp["link"] = row[10]
-            tmp["market"] = row[5]
+            tmp["market"] = row[4]
             tmp["other_links"] = row[16].split(" ")
             tmp["other_price"] = row[7]
             tmp["price"] = row[6]
@@ -418,9 +429,13 @@ class GoogleScrapy:
                 "score": row[9]
             }
             tmp["scraped"] = row[17]
-            tmp["shipping"] = row[3]
-            tmp["tags"] = [tag for tag in row[1].split(" ") if tag.isalnum()]
-            tmp["title"] = row[1]
+            tmp["shipping"] = row[5]
+            if row[1] is not None:
+                tmp["tags"] = [tag for tag in row[1].split(" ") if tag.isalnum()]
+                tmp["title"] = row[1]
+            else:
+                tmp["tags"] = None
+                tmp["title"] = row[2]
             tmp["verified"] = row[12]
             json_parsed.append(tmp)
 
@@ -429,7 +444,7 @@ class GoogleScrapy:
 
     def scrape_product_data(self):
         logger.info(f"Deep search product data for {self.product}")
-        self.driver.get(self.url)
+        self.driver.get(self.url) # headers=config.headers
         self.page_source = WebDriverWait(self.driver, config.webload_timeout).until(
             EC.presence_of_element_located((By.CLASS_NAME, "sh-dgr__content")))
         self.products = self.driver.find_elements(By.CLASS_NAME, "sh-dgr__content")
@@ -449,7 +464,9 @@ class GoogleScrapy:
                 rtext = raw_text.strip()
                 text = rtext.encode("ascii", "ignore").decode("utf-8")
 
-                if class_name == "EI11Pd":
+                if class_name == "EI11Pd" or class_name == "EI11Pd Hb793d":
+                    if not text or text == " " or text == "" or text == None:
+                        text = self.rproduct
                     tmp["title"] = text
                     tmp["tags"] = text.replace("(", "").replace(")", "").replace("[", "").replace("]", "").replace("{", "").replace("}", "").replace("<", "").replace(">", "").replace(",", "").split(" ")
                     tmp["tags"] = [tag for tag in tmp["tags"] if tag.isalnum()]
