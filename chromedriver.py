@@ -1,4 +1,4 @@
-import config
+import config_tmp
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,7 +7,7 @@ import queue
 import time
 from logger import logger
 
-NUM_CHROMEDRIVERS = config.chromedriver_pool_size
+NUM_CHROMEDRIVERS = config_tmp.chromedriver_pool_size
 
 
 def init_chromedriver():
@@ -21,23 +21,23 @@ def get_driver_mode():
     options.add_argument("--disable-gpu")
     options.add_argument('--log-level=1')
     # driver = webdriver.Chrome(chrome_options=options, command_executor="http://localhost:4444/wd/hub", service_args=["--verbose", "--log-path=chromedriver.log"], timeout=999999)  # Change the timeout value as needed
-    if config.chromedriver_mode == 0:
+    if config_tmp.chromedriver_mode == 0:
         options.add_argument("--headless")
-    elif config.chromedriver_mode == 2:
+    elif config_tmp.chromedriver_mode == 2:
         options.add_argument("--start-maximized")
-    logger.info("Using chromedriver mode: " + str(config.chromedriver_mode))
+    logger.info("Using chromedriver mode: " + str(config_tmp.chromedriver_mode))
      
     return options
 
 def get_webdriver(chrome_options):
-    if config.chromedriver_path:
+    if config_tmp.chromedriver_path:
         logger.info("Using User defined chromedriver path")
-        return webdriver.Chrome(executable_path=config.chromedriver_path, options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
+        return webdriver.Chrome(executable_path=config_tmp.chromedriver_path, options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
     else:
-        if config.env_os == 0:
+        if config_tmp.env_os == 0:
             logger.info("Using default linux chromedriver")
             return webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
-        elif config.env_os == 1:
+        elif config_tmp.env_os == 1:
             
             logger.info("Using default windows chromedriver")
             return webdriver.Chrome(executable_path="C:\chromedriver.exe", options=chrome_options, service_args=["--verbose", "--log-path=chromedriver.log"])
@@ -56,7 +56,7 @@ def init_chromedriver_pool():
             chrome_driver_queue.put(driver)
     logger.info("Initialized ChromeDriver pool with " + str(NUM_CHROMEDRIVERS) + " instances")
 
-def get_chromedriver(timeout=config.chromedriver_timeout):
+def get_chromedriver(timeout=config_tmp.chromedriver_timeout):
     start_time = time.time()
     while True:
         try:

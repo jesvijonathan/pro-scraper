@@ -8,7 +8,7 @@ import time
 import threading
 import chromedriver
 from logger import logger
-import config
+import config_tmp
 import hashlib
 import re
 from database import getDb
@@ -126,7 +126,7 @@ class GoogleScrapy:
         
         json_parsed = []
         for index, row in enumerate(result):
-            if index >= config.max_quick_product_results:
+            if index >= config_tmp.max_quick_product_results:
                 break
             tmp = {}
             tmp["hash"] = row[1]
@@ -151,14 +151,14 @@ class GoogleScrapy:
 
         logger.info(f"Deep search product links for {self.hash}")
         self.driver.get(main_link)
-        self.page_source = WebDriverWait(self.driver, config.webload_timeout).until(
+        self.page_source = WebDriverWait(self.driver, config_tmp.webload_timeout).until(
             EC.presence_of_element_located((By.CLASS_NAME, "UAVKwf")))
 
         rows = self.driver.find_elements(By.CLASS_NAME, "sh-osd__offer-row")
         tmp = [] 
 
         for index, row in enumerate(rows):
-            if index >= config.max_deep_product_results:
+            if index >= config_tmp.max_deep_product_results:
                 break
 
             store_element = row.find_element(By.CLASS_NAME, "b5ycib")
@@ -410,7 +410,7 @@ class GoogleScrapy:
         json_parsed = []
 
         for index, row in enumerate(result):
-            if index > config.max_quick_search_results:
+            if index > config_tmp.max_quick_search_results:
                 break
             tmp = json_format_1.copy()
             tmp["additional_info"] = row[14]
@@ -445,12 +445,12 @@ class GoogleScrapy:
     def scrape_product_data(self):
         logger.info(f"Deep search product data for {self.product}")
         self.driver.get(self.url) # headers=config.headers
-        self.page_source = WebDriverWait(self.driver, config.webload_timeout).until(
+        self.page_source = WebDriverWait(self.driver, config_tmp.webload_timeout).until(
             EC.presence_of_element_located((By.CLASS_NAME, "sh-dgr__content")))
         self.products = self.driver.find_elements(By.CLASS_NAME, "sh-dgr__content")
 
         for index, product in enumerate(self.products):
-            if index > config.max_search_results:
+            if index > config_tmp.max_search_results:
                 break
 
             tmp = json_format_1.copy()
