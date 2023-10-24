@@ -25,3 +25,74 @@
 [2023-10-24 17:14:50,691] [INFO] - Initializing ChromeDriver pool...
 [2023-10-24 17:14:50,691] [INFO] - Using chromedriver mode: 0
 [2023-10-24 17:14:50,691] [INFO] - Using default windows chromedriver
+[2023-10-24 17:14:51,675] [INFO] - Using chromedriver mode: 0
+[2023-10-24 17:14:51,675] [INFO] - Using default windows chromedriver
+[2023-10-24 17:14:52,659] [INFO] - Initialized ChromeDriver pool with 2 instances
+[2023-10-24 17:15:44,363] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'iphone')])
+[2023-10-24 17:15:44,363] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:15:44,365] [INFO] - Got chromedriver instance
+[2023-10-24 17:15:44,408] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:15:49,624] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'iphone')])
+[2023-10-24 17:15:49,625] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:15:49,626] [INFO] - Got chromedriver instance
+[2023-10-24 17:15:49,627] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:15:52,538] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
+[2023-10-24 17:15:52,538] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:15:52,539] [INFO] - Got chromedriver instance
+[2023-10-24 17:15:52,540] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:15:52,806] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
+[2023-10-24 17:15:52,806] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:15:52,808] [INFO] - Got chromedriver instance
+[2023-10-24 17:15:52,810] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:15:52,853] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
+[2023-10-24 17:15:52,853] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:15:52,854] [INFO] - Got chromedriver instance
+[2023-10-24 17:15:52,856] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:16:23,286] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:16:23,286] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:16:23,288] [INFO] - Got chromedriver instance
+[2023-10-24 17:16:23,289] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:16:23,662] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:16:23,662] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:16:23,664] [INFO] - Got chromedriver instance
+[2023-10-24 17:16:23,666] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:16:23,929] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:16:23,930] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:16:23,931] [INFO] - Got chromedriver instance
+[2023-10-24 17:16:23,933] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:50,675] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:50,675] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:50,677] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:50,679] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:50,928] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:50,928] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:50,930] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:50,932] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:50,991] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:50,991] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:50,992] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:50,993] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:58,184] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:58,184] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:58,186] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:58,188] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:58,527] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:58,527] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:58,528] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:58,530] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:18:58,792] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:18:58,792] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:18:58,793] [INFO] - Got chromedriver instance
+[2023-10-24 17:18:58,794] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:19:43,180] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:19:43,180] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:19:43,181] [INFO] - Got chromedriver instance
+[2023-10-24 17:19:43,183] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:19:43,501] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:19:43,501] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:19:43,503] [INFO] - Got chromedriver instance
+[2023-10-24 17:19:43,505] [INFO] - Releasing ChromeDriver instance
+[2023-10-24 17:19:43,756] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '072d79f8edb06aa79090dd76c4b4562a')])
+[2023-10-24 17:19:43,756] [INFO] - Getting ChromeDriver instance
+[2023-10-24 17:19:43,758] [INFO] - Got chromedriver instance
+[2023-10-24 17:19:43,759] [INFO] - Releasing ChromeDriver instance
