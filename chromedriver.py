@@ -20,7 +20,7 @@ def get_driver_mode():
     options.add_argument("--disable-web-security")
     options.add_argument("--disable-gpu")
     options.add_argument('--log-level=1')
-    # driver = webdriver.Chrome(chrome_options=options, command_executor="http://localhost:4444/wd/hub", service_args=["--verbose", "--log-path=chromedriver.log"], timeout=999999)  # Change the timeout value as needed
+    # options.add_argument('--no-sandbox')
     if config.chromedriver_mode == 0:
         options.add_argument("--headless")
     elif config.chromedriver_mode == 2:
