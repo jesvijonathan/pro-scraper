@@ -12,10 +12,13 @@ chromedriver_pool_size = 2
 # set to number of seconds to wait for a chromedriver instance to become available
 chromedriver_timeout = 15
 
-debug_mode = False    # set to True to enable debug mode
+debug_mode = True    # set to True to enable debug mode
 use_reloader = True   # set to True to enable auto reload on code changes
 app_port = 5000    # set to port number to run server on
 threaded = True    # set to True to enable multi-threading
+
+cors = True
+cors_destination = "http://localhost:5173" #https://pro-scraper.vercel.app
 
 max_quick_search_results = 99      # set to max number of quick search results to return
 max_search_results = 10      # set to max number of search results to return (deep search results, higher value scraps more data)

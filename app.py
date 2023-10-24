@@ -10,6 +10,7 @@ from flask_cors import CORS
 import mysql.connector
 import time
 
+
 logger.info("\n ############################### \n")
 logger.info("Starting program")
 logger.info("Logger initialized")
@@ -40,8 +41,10 @@ logger.info("Imported In-House modules")
 app = Flask(__name__)
 # CORS(app)
  
-# CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}}
-CORS(app, resources={r"/api/*": {"origins": "https://pro-scraper.vercel.app"}})
+if (config.cors == True):
+    CORS(app, resources={r"/api/*": {"origins": config.cors_destination}})
+    #CORS(app, resources={r"/api/*": {"origins": "https://pro-scraper.vercel.app"}})
+
 
 
 

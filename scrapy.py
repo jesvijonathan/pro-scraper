@@ -102,7 +102,6 @@ class GoogleScrapy:
 
         try:
             self.main_link = json_parsed["other_links"][1]
-            print(json_parsed["other_links"][1])
         except:
             return jsonify({"error": "Product hash not found in products, try deep search"}, json_parsed), 404
         
@@ -112,6 +111,30 @@ class GoogleScrapy:
             result = self.scrap_product_link_db()
 
         return result
+    
+    def ref_product(self):
+        con = self.con
+
+        sql = "SELECT * FROM products WHERE hash = %s"
+        params = [self.hash]
+        con.cursor.execute(sql, params)
+        result = con.cursor.fetchone()
+
+        if result is None:
+            return jsonify({"error": "Product hash not found in products, try deep search"}), 404
+        
+        try:
+            other_l = result[16].split(" ")
+            self.main_link = other_l[1]
+            self.hash = result[2]
+            resp = self.scrap_product_link_deep()
+            return resp
+
+        except:
+            return jsonify({"error": "Error while deep scraping reviews"}), 404
+
+
+    
         
     def scrap_product_link_db(self):
         con = self.con

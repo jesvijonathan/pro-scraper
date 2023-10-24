@@ -37,6 +37,8 @@ class SearchView(MethodView):
                 return result.scrap_product(deep=True)
             elif self.path == '/api/reviews':
                 return result.get_reviews()
+            elif self.path == '/api/refresh_product':
+                return result.ref_product()
             else:
                 return jsonify({'error': 'Invalid URL'}), 404
         except Exception as e:
@@ -59,3 +61,4 @@ search_bp.add_url_rule('/api/product_quick', view_func=SearchView.as_view('searc
 search_bp.add_url_rule('/api/product_deep', view_func=SearchView.as_view('search_productDeep_view'))  # Use a unique endpoint name here
 search_bp.add_url_rule('/api/reviews', view_func=SearchView.as_view('search_reviews_view'))  # Use a unique endpoint name here
 search_bp.add_url_rule('/api/db_search', view_func=SearchView.as_view('search_dbSearch_view'))  # Use a unique endpoint name here
+search_bp.add_url_rule('/api/refresh_product', view_func=SearchView.as_view('search_refreshProduct_view'))  # Use a unique endpoint name here

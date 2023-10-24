@@ -1,62 +1,123 @@
-[2023-10-11 02:17:35,835] [INFO] - 
+[2023-10-18 12:48:59,553] [INFO] - 
  ############################### 
 
-[2023-10-11 02:17:35,835] [INFO] - Starting program
-[2023-10-11 02:17:35,835] [INFO] - Logger initialized
-[2023-10-11 02:17:35,835] [INFO] - Loading Configuration
-[2023-10-11 02:17:35,835] [INFO] - Logger append        : False
-[2023-10-11 02:17:35,835] [INFO] - Logger console print : False
-[2023-10-11 02:17:35,835] [INFO] - Logger tail          : False
-[2023-10-11 02:17:35,835] [INFO] - Environment OS       : 1
-[2023-10-11 02:17:35,835] [INFO] - ChromeDriver path    : ""
-[2023-10-11 02:17:35,835] [INFO] - ChromeDriver mode    : 0
-[2023-10-11 02:17:35,835] [INFO] - ChromeDriver pool    : 2
-[2023-10-11 02:17:35,835] [INFO] - ChromeDriver timeout : 15
-[2023-10-11 02:17:35,835] [INFO] - Debug mode           : False
-[2023-10-11 02:17:35,835] [INFO] - Use reloader         : True
-[2023-10-11 02:17:35,835] [INFO] - App port             : 5000
-[2023-10-11 02:17:35,835] [INFO] - Threaded             : True
-[2023-10-11 02:17:35,835] [INFO] - Imported all modules
-[2023-10-11 02:17:35,835] [INFO] - Imported In-House modules
-[2023-10-11 02:17:35,863] [INFO] - MySQL database created
-[2023-10-11 02:17:35,865] [INFO] - MySQL cursor created
-[2023-10-11 02:17:35,865] [INFO] - MySQL tables created
-[2023-10-11 02:17:35,865] [INFO] - Registered Blueprints
-[2023-10-11 02:17:35,865] [INFO] - Initializing ChromeDriver pool...
-[2023-10-11 02:17:35,865] [INFO] - Using chromedriver mode: 0
-[2023-10-11 02:17:35,865] [INFO] - Using default windows chromedriver
-[2023-10-11 02:17:37,001] [INFO] - Using chromedriver mode: 0
-[2023-10-11 02:17:37,001] [INFO] - Using default windows chromedriver
-[2023-10-11 02:17:38,060] [INFO] - Initialized ChromeDriver pool with 2 instances
-[2023-10-11 02:18:22,563] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'cc7d1d1874e01d42a9a066388f5b148a')])
-[2023-10-11 02:18:22,563] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:22,563] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:22,571] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:22,820] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'cc7d1d1874e01d42a9a066388f5b148a')])
-[2023-10-11 02:18:22,822] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:22,822] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:22,822] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:22,886] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'cc7d1d1874e01d42a9a066388f5b148a')])
-[2023-10-11 02:18:22,886] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:22,891] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:22,891] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:29,500] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'iphone')])
-[2023-10-11 02:18:29,500] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:29,500] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:29,508] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:34,797] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'iphone')])
-[2023-10-11 02:18:34,797] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:34,797] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:34,804] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:36,824] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
-[2023-10-11 02:18:36,824] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:36,824] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:36,831] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:37,178] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
-[2023-10-11 02:18:37,178] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:37,178] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:37,186] [INFO] - Releasing ChromeDriver instance
-[2023-10-11 02:18:37,440] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'e1aee1102cf503ed45167b0be20a4ac9')])
-[2023-10-11 02:18:37,440] [INFO] - Getting ChromeDriver instance
-[2023-10-11 02:18:37,440] [INFO] - Got chromedriver instance
-[2023-10-11 02:18:37,440] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:48:59,553] [INFO] - Starting program
+[2023-10-18 12:48:59,553] [INFO] - Logger initialized
+[2023-10-18 12:48:59,553] [INFO] - Loading Configuration
+[2023-10-18 12:48:59,553] [INFO] - Logger append        : False
+[2023-10-18 12:48:59,553] [INFO] - Logger console print : False
+[2023-10-18 12:48:59,553] [INFO] - Logger tail          : False
+[2023-10-18 12:48:59,553] [INFO] - Environment OS       : 1
+[2023-10-18 12:48:59,553] [INFO] - ChromeDriver path    : ""
+[2023-10-18 12:48:59,554] [INFO] - ChromeDriver mode    : 0
+[2023-10-18 12:48:59,554] [INFO] - ChromeDriver pool    : 2
+[2023-10-18 12:48:59,554] [INFO] - ChromeDriver timeout : 15
+[2023-10-18 12:48:59,554] [INFO] - Debug mode           : True
+[2023-10-18 12:48:59,554] [INFO] - Use reloader         : True
+[2023-10-18 12:48:59,554] [INFO] - App port             : 5000
+[2023-10-18 12:48:59,554] [INFO] - Threaded             : True
+[2023-10-18 12:48:59,554] [INFO] - Imported all modules
+[2023-10-18 12:48:59,554] [INFO] - Imported In-House modules
+[2023-10-18 12:48:59,582] [INFO] - MySQL database created
+[2023-10-18 12:48:59,584] [INFO] - MySQL cursor created
+[2023-10-18 12:48:59,584] [INFO] - MySQL tables created
+[2023-10-18 12:48:59,588] [INFO] - Registered Blueprints
+[2023-10-18 12:48:59,588] [INFO] - Initializing ChromeDriver pool...
+[2023-10-18 12:48:59,588] [INFO] - Using chromedriver mode: 0
+[2023-10-18 12:48:59,588] [INFO] - Using default windows chromedriver
+[2023-10-18 12:49:00,628] [INFO] - Using chromedriver mode: 0
+[2023-10-18 12:49:00,628] [INFO] - Using default windows chromedriver
+[2023-10-18 12:49:01,633] [INFO] - Initialized ChromeDriver pool with 2 instances
+[2023-10-18 12:49:42,444] [INFO] - GET "/api/deep_search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'idea')])
+[2023-10-18 12:49:42,444] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:49:42,444] [INFO] - Got chromedriver instance
+[2023-10-18 12:49:42,444] [INFO] - Deep search product data for idea
+[2023-10-18 12:49:44,779] [INFO] - GET "/api/deep_search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'samsung')])
+[2023-10-18 12:49:44,779] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:49:44,788] [INFO] - Got chromedriver instance
+[2023-10-18 12:49:44,788] [INFO] - Deep search product data for samsung
+[2023-10-18 12:49:51,436] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'samsung')])
+[2023-10-18 12:50:01,645] [ERROR] - Exception: Message: unknown error: net::ERR_CONNECTION_CLOSED
+  (Session info: headless chrome=118.0.5993.70)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6256978A2+54818]
+	(No symbol) [0x00007FF625606AD2]
+	(No symbol) [0x00007FF6254BDA3B]
+	(No symbol) [0x00007FF6254B9853]
+	(No symbol) [0x00007FF6254ACB9C]
+	(No symbol) [0x00007FF6254ADDF7]
+	(No symbol) [0x00007FF6254ACF95]
+	(No symbol) [0x00007FF6254AC00E]
+	(No symbol) [0x00007FF6254ABFB3]
+	(No symbol) [0x00007FF6254AA82E]
+	(No symbol) [0x00007FF6254AB123]
+	(No symbol) [0x00007FF6254BFE4F]
+	(No symbol) [0x00007FF625537917]
+	(No symbol) [0x00007FF62551EAAA]
+	(No symbol) [0x00007FF6255375A2]
+	(No symbol) [0x00007FF62551E883]
+	(No symbol) [0x00007FF6254F3691]
+	(No symbol) [0x00007FF6254F48D4]
+	GetHandleVerifier [0x00007FF6259FB9A2+3610402]
+	GetHandleVerifier [0x00007FF625A51870+3962352]
+	GetHandleVerifier [0x00007FF625A49D5F+3930847]
+	GetHandleVerifier [0x00007FF625733656+693206]
+	(No symbol) [0x00007FF625611638]
+	(No symbol) [0x00007FF62560D944]
+	(No symbol) [0x00007FF62560DA72]
+	(No symbol) [0x00007FF6255FE123]
+	BaseThreadInitThunk [0x00007FFE6E0F257D+29]
+	RtlUserThreadStart [0x00007FFE6F54AA78+40]
+
+[2023-10-18 12:50:01,645] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:50:01,645] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:50:01,645] [INFO] - Got chromedriver instance
+[2023-10-18 12:50:01,653] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:50:09,724] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', 'samsung')])
+[2023-10-18 12:50:09,725] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:50:09,728] [INFO] - Got chromedriver instance
+[2023-10-18 12:50:09,733] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:50:21,128] [INFO] - GET "/api/search" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '382389e7737fbcd3007b5298fe479fa8')])
+[2023-10-18 12:50:21,128] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:50:21,131] [INFO] - Got chromedriver instance
+[2023-10-18 12:50:21,133] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:50:21,382] [INFO] - GET "/api/product" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '382389e7737fbcd3007b5298fe479fa8')])
+[2023-10-18 12:50:21,382] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:50:21,385] [INFO] - Got chromedriver instance
+[2023-10-18 12:50:21,388] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:50:21,446] [INFO] - GET "/api/reviews" 127.0.0.1 {} ImmutableMultiDict([('searchQuery', '382389e7737fbcd3007b5298fe479fa8')])
+[2023-10-18 12:50:21,446] [INFO] - Getting ChromeDriver instance
+[2023-10-18 12:50:21,449] [INFO] - Got chromedriver instance
+[2023-10-18 12:50:21,450] [INFO] - Releasing ChromeDriver instance
+[2023-10-18 12:52:08,309] [INFO] - Cleaning up
+[2023-10-18 12:54:42,468] [ERROR] - Exception: Message: timeout: Timed out receiving message from renderer: 286.461
+  (Session info: headless chrome=118.0.5993.70)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6256978A2+54818]
+	(No symbol) [0x00007FF625606AD2]
+	(No symbol) [0x00007FF6254BDA3B]
+	(No symbol) [0x00007FF6254AC06A]
+	(No symbol) [0x00007FF6254ABFB3]
+	(No symbol) [0x00007FF6254AA82E]
+	(No symbol) [0x00007FF6254AB2EE]
+	(No symbol) [0x00007FF6254B775B]
+	(No symbol) [0x00007FF6254C84D1]
+	(No symbol) [0x00007FF6254CC80A]
+	(No symbol) [0x00007FF6254AB937]
+	(No symbol) [0x00007FF6254C83AA]
+	(No symbol) [0x00007FF625537609]
+	(No symbol) [0x00007FF62551E883]
+	(No symbol) [0x00007FF6254F3691]
+	(No symbol) [0x00007FF6254F48D4]
+	GetHandleVerifier [0x00007FF6259FB9A2+3610402]
+	GetHandleVerifier [0x00007FF625A51870+3962352]
+	GetHandleVerifier [0x00007FF625A49D5F+3930847]
+	GetHandleVerifier [0x00007FF625733656+693206]
+	(No symbol) [0x00007FF625611638]
+	(No symbol) [0x00007FF62560D944]
+	(No symbol) [0x00007FF62560DA72]
+	(No symbol) [0x00007FF6255FE123]
+	BaseThreadInitThunk [0x00007FFE6E0F257D+29]
+	RtlUserThreadStart [0x00007FFE6F54AA78+40]
+
+[2023-10-18 12:54:42,469] [INFO] - Releasing ChromeDriver instance
